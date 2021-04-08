@@ -1,0 +1,31 @@
+{% extends "default.html" %}
+{% block title %}Pasta Page{% endblock %}
+
+{% block navbaritems %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="recipes.html">Recipes <span class="sr-only">(current)</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="submit.html">Submit</a>
+      </li>
+    </ul>
+{% endblock %}
+
+{% block pagecontent %}
+<h1>Welcome to our PASTA recipe page!</h1>
+<p> Scroll down or click BUTTON to activate voice control </p>
+<p> TODO: </p>
+<ul>
+    <li> codify the recipe from that website onto here </li>
+    <li> recipe + picture </li>
+    <li> ingredients (checklist) </li>
+    <li> Also potentially photos of ingredients if helpful?</li>
+    <li> steps (checklist) </li>
+</ul>
+
+{% endblock %}
