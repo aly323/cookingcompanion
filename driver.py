@@ -39,6 +39,6 @@ def about():
     return render_template("submit.html")
 
 
-
+# debug allows for changes to be updated as you edit the files , NOTE: runs locally
 if __name__ == "__main__":
     app.run(debug=True)
