@@ -1,6 +1,7 @@
 {% extends "default.html" %}
 {% block title %}Pasta Page{% endblock %}
 
+
 {% block navbaritems %}
 <ul class="navbar-nav mr-auto">
     <li class="nav-item">
@@ -17,8 +18,19 @@
 {% endblock %}
 
 {% block pagecontent %}
+<script type=text/javascript src="{{ url_for('static', filename='js/tts.js') }}"></script>
+
 <h1>Welcome to our PASTA recipe page!</h1>
 <p> Scroll down or click BUTTON to activate voice control </p>
+
+
+<button type="button" onclick="ttsTest()">Text to speech</button>
+
+<br><br>
+
+
+<img src="{{ url_for('static', filename='images/pasta1.jpg')}}" width="476" height="457" alt="The pasta after making the recipe">
+
 <!-- <p> TODO: </p>
 <ul>
     <li> codify the recipe from that website onto here </li>

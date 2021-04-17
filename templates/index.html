@@ -30,27 +30,54 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="https://www.dementiacafe.co.uk/wp-content/uploads/2016/09/cat-cafe.jpg" alt="First slide">
+      <!-- <img class="d-block w-100" src="https://www.dementiacafe.co.uk/wp-content/uploads/2016/09/cat-cafe.jpg" alt="First slide"> -->
+      <img class="d-block w-100" src="{{ url_for('static', filename='images/catCoffee1.jpg')}}" height="600" alt="latte with cat design">
       <div class="carousel-caption d-none d-md-block">
         <h3>Cat Coffee</h3>
         <p>from a cat cafe</p>
         </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://static01.nyt.com/images/2021/01/31/dining/as-cauliflower-adobo/as-cauliflower-adobo-articleLarge.jpg" alt="Second slide">
+      <!-- <img class="d-block w-100" src="https://static01.nyt.com/images/2021/01/31/dining/as-cauliflower-adobo/as-cauliflower-adobo-articleLarge.jpg" alt="Second slide"> -->
+      <img class="d-block w-100" src="{{ url_for('static', filename='images/soup2.JPG')}}" height="600" alt="wonton soup">
       <div class="carousel-caption d-none d-md-block">
-        <h3>Cauliflower Adobo</h3>
-        <p>inspired by Kate's dish</p>
+        <h3>Wonton Soup</h3>
+        <p>in San Francisco (Great Eastern Restaurant)</p>
         </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Third slide">
+      <!-- <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Third slide"> -->
+      <img class="d-block w-100" src="{{ url_for('static', filename='images/waffles1.jpg')}}" height="600" alt="waffles and ice cream">
       <div class="carousel-caption d-none d-md-block">
-        <h3>Pizza</h3>
-        <p>welcoming of pineapple</p>
+        <h3>Waffles</h3>
+        <p>in Northampton, MA</p>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ url_for('static', filename='images/iceCream.JPG')}}" height="600" alt="ice cream">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Ice Cream Flight</h3>
+        <p>in San Francisco</p>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ url_for('static', filename='images/pasta.JPG')}}" height="600" alt="pasta">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Pasta</h3>
+        <p></p>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ url_for('static', filename='images/donuts.jpg')}}" height="600" alt="pasta">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Apple Cider Donuts</h3>
+        <p>at Smith College</p>
         </div>
     </div>
   </div>
