@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Pasta Page</title>
+      </head>
+      <body>
+          <!-- Navigation bar  -->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#">Cooking Companion</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+<!-- NAV BAR ITEMS -->
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="recipes.html">Recipes <span class="sr-only">(current)</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="submit.html">Submit</a>
+      </li>
+    </ul>
+  </ul>
+
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+</nav>
+
+<div style="padding: 30px; line-height: 1.15;">
+
+
+<script type=text/javascript src="js/msg.js"></script>
+<script type=text/javascript src="js/tts.js"></script>
+<script type=text/javascript src="js/sst.js"></script>
+
+<!-- PAGE CONTENT -->
+
+<h1>Welcome to our PASTA recipe page!</h1>
+<p> Scroll down or click BUTTON to activate voice control </p>
+
+
+<button type="button" onclick="ttsTest()">Text to speech</button>
+
+<br><br>
+
+<button onClick="location.href='settings.html'">Change voice settings</button>
+
+
+
+<br><br>
+
+
+<img src="images/pasta1.jpg" width="476" height="457" alt="The pasta after making the recipe">
+
+<!-- <p> TODO: </p>
+<ul>
+    <li> codify the recipe from that website onto here </li>
+    <li> recipe + picture </li>
+    <li> ingredients (checklist) </li>
+    <li> Also potentially photos of ingredients if helpful?</li>
+    <li> steps (checklist) </li>
+</ul> -->
+
+
+<h2>Ingredient Checklist</h2>
+
+<input type="checkbox" id="ingredient1">
+<label for="ingredient1"> 1 lb bowtie pasta</label><br>
+
+<input type="checkbox" id="ingredient2">
+<label for="ingredient2"> 1/2 cup olive oil + more for finishing</label><br>
+
+<input type="checkbox" id="ingredient3">
+<label for="ingredient3"> 2 boxes cherry tomatoes (around 20-25 oz)</label><br>
+
+<input type="checkbox" id="ingredient4">
+<label for="ingredient4"> 1 block feta about 8 oz</label><br>
+
+<input type="checkbox" id="ingredient5">
+<label for="ingredient5"> 2 cloves garlic finely chopped</label><br>
+
+<input type="checkbox" id="ingredient6">
+<label for="ingredient6"> a few pinches red pepper flakes</label><br>
+
+<input type="checkbox" id="ingredient7">
+<label for="ingredient7"> 1 handful fresh basil leaves</label><br>
+
+<input type="checkbox" id="ingredient8">
+<label for="ingredient8"> salt and pepper</label><br>
+
+<h2>Recipe Steps</h2>
+
+
+
+<ol>
+  <li>Preheat oven to 400.</li>
+  <li>Add olive oil to a baking dish and toss with whole cherry tomatoes, salt and pepper until everything is coated.</li>
+  <li>Add the feta in the middle and top with a splash more of olive oil plus a few cranks of fresh pepper. Bake for 30 minutes.</li>
+  <li>Meanwhile, prepare bowtie pasta according to directions then strain.</li>
+  <li>After the 30 minutes has past, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.</li>
+  <li>Remove the baking dish from the oven and add garlic and red pepper flakes and stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.</li>
+  <li>Toss in the pasta and stir one more time.</li>
+  <li>Finish with fresh basil, another splash of olive oil and season with salt and pepper.</li>
+</ol> 
+
+
+
+<a href="https://grilledcheesesocial.com/2019/06/27/baked-feta-pasta-with-tomatoes/">Recipe Source Link</a>
+
+
+
+<h2>JavaScript Speech to Text</h2>
+        <p>Click on the below button and speak something...</p>
+        <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button> &nbsp; <span id="action"></span></p>
+        <div id="output" class="hide"></div>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
