@@ -3,7 +3,15 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Pasta Page</title>
+
+
+      <style>
+      .settings-div {
+        background-color: #55bcdb;
+    }
+    </style>
       </head>
+      
       <body>
           <!-- Navigation bar  -->
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -40,9 +48,9 @@
 <div style="padding: 30px; line-height: 1.15;">
 
 
-<script type=text/javascript src="js/msg.js"></script>
-<script type=text/javascript src="js/tts.js"></script>
-<script type=text/javascript src="js/sst.js"></script>
+
+
+<script type=text/javascript src="functions.js"></script>
 
 <!-- PAGE CONTENT -->
 
@@ -54,8 +62,83 @@
 
 <br><br>
 
-<button onClick="location.href='settings.html'">Change voice settings</button>
 
+
+
+
+<!-- SETTINGS FOR VOICE -->
+
+<button onclick="toggleSettings()">Change voice settings</button>
+
+
+<div class="settings-div" id="changeSettings" style="display:none;">
+  <h3>Change Voice</h3>
+
+<button type="button" onclick="changeVoice()">change voice</button>
+
+<br><br>
+
+<h3>Change Volume</h3>
+
+<button type="button" onclick="decreaseVolume()">-</button>
+<button type="button" onclick="increaseVolume()">+</button>
+
+
+<p id="currVol">current volume [between 0 (lowest) and 1 (highest)]: N/A</p>
+
+<br>
+
+<h3>Change Rate</h3>
+
+<button type="button" onclick="decreaseRate()">-</button>
+<button type="button" onclick="increaseRate()">+</button>
+
+<p id="currRate">current rate [0.1 (lowest) and 10 (highest)]: N/A</p>
+
+<br>
+
+<h3>Change Pitch</h3>
+
+<button type="button" onclick="decreasePitch()">-</button>
+<button type="button" onclick="increasePitch()">+</button>
+
+<p id="currPitch">current pitch [0 (lowest) and 2 (highest)]: N/A</p>
+
+<br>
+
+<h3>Change Language</h3>
+
+<form method="post">
+  <select id="dropdown" name="dropdown" onchange="changeHiddenInput(this)">
+      <option value="English">English</option>
+      <option value="French">French</option>
+      <option value="Italian">Italian</option>
+      <option value="Spanish">Spanish</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Russian">Russian</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Japanese">Japanese</option>
+      
+  </select>
+
+  <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+
+  <button onclick="changeHiddenInput (objDropDown)">Try it</button>
+</form>
+
+<div id="result"> </div>
+
+
+<br><br>
+
+
+<button type="button" onclick="playVoice()">Play voice example</button>
+
+<button type="button" onclick="stopVoice()">Stop voice example</button>
+
+<br><br>
+
+</div>
 
 
 <br><br>
@@ -63,14 +146,7 @@
 
 <img src="images/pasta1.jpg" width="476" height="457" alt="The pasta after making the recipe">
 
-<!-- <p> TODO: </p>
-<ul>
-    <li> codify the recipe from that website onto here </li>
-    <li> recipe + picture </li>
-    <li> ingredients (checklist) </li>
-    <li> Also potentially photos of ingredients if helpful?</li>
-    <li> steps (checklist) </li>
-</ul> -->
+
 
 
 <h2>Ingredient Checklist</h2>
@@ -131,6 +207,17 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<!-- prevent "confirm form resubmission" on refresh of page
+https://stackoverflow.com/questions/6320113/how-to-prevent-form-resubmission-when-page-is-refreshed-f5-ctrlr
+-->
+<script>
+  if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+  }
+</script>
+
 
 </body>
 </html>
