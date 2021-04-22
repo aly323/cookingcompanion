@@ -2,9 +2,37 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>About Page</title>
-      </head>
-      <body>
+        <title>Submit Page</title>
+        <style>
+          input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+          
+          input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          
+          input[type=submit]:hover {
+            background-color: #45a049;
+          }
+          
+          </style>
+    </head>
+
+<body>
           <!-- Navigation bar  -->
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
               <a class="navbar-brand" href="#">Cooking Companion</a>
@@ -40,14 +68,36 @@
 
 <!-- PAGE CONTENT -->
 
-<h1>Welcome to our SUBMIT page! What to add?</h1>
+<h1>What would you like us to add to our website?</h1>
 <p> TODO: </p>
 <ul>
-  <li> make a form in the middle of the page that the person can fill out </li>
+  <li> Make it look nicer pls</li>
   <li> maybe direct them to other online resources available</li>
+  <li> Reaction that its been submitted... -amy</li>
 </ul>
 
 </div>
+
+<div style="padding:20px;">
+  <!-- currently no action upon submission -->
+  <form>
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="recipe">Suggested recipe link?</label>
+    <input type="text" id="recipe" name="recipe" placeholder="Website link..">
+    
+  
+    <label for="feedback">Any other feedback for our website?</label>
+    <input type="text" id="feedback" name="feedback" placeholder="Pros and cons are..">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
