@@ -161,23 +161,6 @@ function toggleSettings() {
     }
 }
 
-// testing the voice
-// https://dev.to/asaoluelijah/text-to-speech-in-3-lines-of-javascript-b8h
-function ttsTest() {
-    
-    if ('speechSynthesis' in window) {
-        // Speech Synthesis supported 
-        
-        msg.text = "Testing text to speech";
-        synth.speak(msg);
-    } else {
-        // Speech Synthesis Not Supported 
-        alert("Sorry, your browser doesn't support text to speech!");
-    }
-
-    
-}
-
 
 // https://stackoverflow.com/questions/17931843/assign-a-javascript-variable-value-depends-on-html-drop-down-list-section
 function changeHiddenInput(objDropDown) {
@@ -238,8 +221,71 @@ function runSpeechRecognition() {
             var confidence = event.results[0][0].confidence;
             output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
             output.classList.remove("hide");
+
+            tts(transcript)
         };
       
          // start recognition
          recognition.start();
-  }
+}
+
+// https://dev.to/asaoluelijah/text-to-speech-in-3-lines-of-javascript-b8h
+// convert the given text to speech
+function tts(str_request) {
+    
+    // Speech Synthesis supported
+    if ('speechSynthesis' in window) {
+        // convert to all lower case
+        str_request = str_request.toLowerCase();
+        
+        
+        msg.text = getMessage(str_request);
+        synth.speak(msg);
+    } else {
+        // Speech Synthesis Not Supported 
+        alert("Sorry, your browser doesn't support text to speech!");
+    }
+
+    
+}
+
+// get the message needed based on what user requested
+function getMessage(str_request) {
+    if (str_request == "step one" || str_request == "step 1") {
+        return "Preheat oven to 400.";
+    } else if (str_request == "step two" || str_request == "step 2") {
+        return "Add olive oil to a baking dish and toss with whole cherry tomatoes, salt and pepper until everything is coated.";
+    } else if (str_request == "step three" || str_request == "step 3") {
+        return "Add the feta in the middle and top with a splash more of olive oil plus a few cranks of fresh pepper. Bake for 30 minutes.";
+    } else if (str_request == "step four" || str_request == "step 4") {
+        return "Meanwhile, prepare bowtie pasta according to directions then strain.";
+    } else if (str_request == "step five" || str_request == "step 5") {
+        return "After the 30 minutes has past, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.";
+    } else if (str_request == "step six" || str_request == "step 6") {
+        return "Remove the baking dish from the oven and add garlic and red pepper flakes and stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.";
+    } else if (str_request == "step seven" || str_request == "step 7") {
+        return "Toss in the pasta and stir one more time.";
+    } else if (str_request == "step eight" || str_request == "step 8") {
+        return "Finish with fresh basil, another splash of olive oil and season with salt and pepper.";
+    } else if (str_request == "ingredient one" || str_request == "ingredient 1") {
+        return "1 lb bowtie pasta";
+    } else if (str_request == "ingredient two" || str_request == "ingredient 2" || str_request == "ingredient to") {
+        return "1/2 cup olive oil + more for finishing";
+    } else if (str_request == "ingredient three" || str_request == "ingredient 3") {
+        return "2 boxes cherry tomatoes (around 20-25 oz)";
+    } else if (str_request == "ingredient four" || str_request == "ingredient 4" || str_request == "ingredient for") {
+        return "1 block feta about 8 oz";
+    } else if (str_request == "ingredient five" || str_request == "ingredient 5") {
+        return "2 cloves garlic finely chopped";
+    } else if (str_request == "ingredient six" || str_request == "ingredient 6") {
+        return "a few pinches red pepper flakes";
+    } else if (str_request == "ingredient seven" || str_request == "ingredient 7") {
+        return "1 handful fresh basil leaves";
+    } else if (str_request == "ingredient eight" || str_request == "ingredient 8") {
+        return "salt and pepper";
+    }
+    
+    else {
+        return "Sorry, request not recognized."
+    }
+}
