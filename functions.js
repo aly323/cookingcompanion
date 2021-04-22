@@ -8,16 +8,33 @@
 var synth = window.speechSynthesis;
 var msg = new SpeechSynthesisUtterance();
 
-function changeVoice() {
-    
 
-    // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices#html
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
+var voices = [];
 
-    var voices = synth.getVoices();
-
-
-    
+function populateVoiceList() {
+    voices = synth.getVoices();
+    var voiceSelect = document.querySelector('.select');
+  
+    for (i = 0; i < voices.length ; i++) {
+      var option = document.createElement('option');
+      option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+  
+      if (voices[i].default) {
+        option.textContent += ' -- DEFAULT';
+      }
+  
+      option.setAttribute('data-lang', voices[i].lang);
+      option.setAttribute('data-name', voices[i].name);
+      voiceSelect.appendChild(option);
+    }
 }
+
+populateVoiceList();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = populateVoiceList;
+}
+
 
 // A float that represents the volume value, between 0 (lowest) and 1 (highest)
 // default value 1
@@ -127,18 +144,17 @@ function increasePitch() {
     document.getElementById("currPitch").innerHTML = "current pitch [0 (lowest) and 2 (highest)]: " + msg.pitch;
 }
 
-// laguage voice speaks in
-function changeLanguage() {
-    var currLang = msg.lang;
-}
-
-// what the voice will say
-function changeText() {
-    currText = msg.text;
-}
-
 // test what the voice sounds like
 function playVoice() {
+    var voiceSelect = document.querySelector('.select');
+    var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+    for (i = 0; i < voices.length ; i++) {
+        if (voices[i].name === selectedOption) {
+            msg.voice = voices[i];
+        }
+    }
+
+
     msg.text = "Hello, I am your cooking companion."
     synth.speak(msg);
 }
@@ -159,37 +175,6 @@ function toggleSettings() {
     } else {
         x.style.display = "none";
     }
-}
-
-
-// https://stackoverflow.com/questions/17931843/assign-a-javascript-variable-value-depends-on-html-drop-down-list-section
-function changeHiddenInput(objDropDown) {
-    
-    var objHidden = document.getElementById("hiddenInput");
-    objHidden.value = objDropDown.value;
-    var lang = objHidden.value;
-    // result.innerHTML = lang || "";
-
-
-
-    if (lang == "English") {
-        msg.lang = 'en-US';
-    } else if (lang == "French") {
-        msg.lang = 'fr-FR';
-    } else if (lang == "Italian") {
-        msg.lang = 'it-IT';
-    } else if (lang == "Spanish") {
-        msg.lang = 'es-PR';
-    } else if (lang == "Portuguese") {
-        msg.lang = 'pt-BR';
-    } else if (lang == "Russian") {
-        msg.lang = 'ru-RU';
-    } else if (lang == "Chinese") {
-        msg.lang = 'cmn-Hans-CN';
-    } else if (lang == "Japanese") {
-        msg.lang = 'ja-JP';
-    } 
-
 }
 
 

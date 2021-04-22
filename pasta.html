@@ -71,7 +71,9 @@
 <div class="settings-div" id="changeSettings" style="display:none;">
   <h3>Change Voice</h3>
 
-<button type="button" onclick="changeVoice()">change voice</button>
+
+<!-- select gets populated from JavaScript -->
+<select class = "select"></select>
 
 <br><br>
 
@@ -100,30 +102,6 @@
 <button type="button" onclick="increasePitch()">+</button>
 
 <p id="currPitch">current pitch [0 (lowest) and 2 (highest)]: N/A</p>
-
-<br>
-
-<h3>Change Language</h3>
-
-<form method="post">
-  <select id="dropdown" name="dropdown" onchange="changeHiddenInput(this)">
-      <option value="English">English</option>
-      <option value="French">French</option>
-      <option value="Italian">Italian</option>
-      <option value="Spanish">Spanish</option>
-      <option value="Portuguese">Portuguese</option>
-      <option value="Russian">Russian</option>
-      <option value="Chinese">Chinese</option>
-      <option value="Japanese">Japanese</option>
-      
-  </select>
-
-  <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
-
-  <button onclick="changeHiddenInput (objDropDown)">Try it</button>
-</form>
-
-<div id="result"> </div>
 
 
 <br><br>
