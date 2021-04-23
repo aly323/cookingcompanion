@@ -4,41 +4,56 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Pasta Page</title>
 
+        <style>
+          .settings-div {
+              background-color: #4fe4e9;
+          }
 
-      <style>
-      .settings-div {
-        background-color: #55bcdb;
-    }
-    </style>
-      </head>
+          input[type=checkbox]:checked + label.strikethrough{
+              text-decoration: line-through;
+          }
+
+          body {
+            line-height: 1.6;
+            padding-bottom: 30px;
+          }
+
+          .container {
+            position:fixed;
+            float:center;
+            bottom: 0;
+          }
+        </style>
+    </head>
       
-      <body>
-          <!-- Navigation bar  -->
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-              <a class="navbar-brand" href="#">Cooking Companion</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<body>
+
+<!-- Navigation bar  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cooking Companion</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
 <!-- NAV BAR ITEMS -->
 <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html">Home</a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" href="recipes.html">Recipes <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="recipes.html">Recipes <span class="sr-only">(current)</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="submit.html">Submit</a>
-      </li>
-    </ul>
-  </ul>
+    </li>
+</ul>
 
-  <form class="form-inline my-2 my-lg-0">
+
+<form class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
@@ -47,20 +62,16 @@
 
 <div style="padding: 30px; line-height: 1.15;">
 
-
-
-
-<script type=text/javascript src="voice.js"></script>
-<script type=text/javascript src="progress.js"></script>
+    <!-- INCLUDE JAVASCRIPT -->
+    <script type=text/javascript src="voice.js"></script>
+    <script type=text/javascript src="progress.js"></script>
 
 <!-- PAGE CONTENT -->
 
-<h1>Welcome to our PASTA recipe page!</h1>
+<h1> Tiktok Pasta Recipe</h1>
 <p> Scroll down or click BUTTON to activate voice control </p>
 
 <br>
-
-
 
 
 
@@ -128,42 +139,43 @@
 <h2>Ingredient Checklist</h2>
 
 <input type="checkbox" id="ingredient1">
-<label for="ingredient1"> 1 lb bowtie pasta</label><br>
+<label for="ingredient1" class="strikethrough"> 1 lb bowtie pasta</label><br>
 
 <input type="checkbox" id="ingredient2">
-<label for="ingredient2"> 1/2 cup olive oil + more for finishing</label><br>
+<label for="ingredient2" class="strikethrough"> 1/2 cup olive oil + more for finishing</label><br>
 
 <input type="checkbox" id="ingredient3">
-<label for="ingredient3"> 2 boxes cherry tomatoes (around 20-25 oz)</label><br>
+<label for="ingredient3" class="strikethrough"> 2 boxes cherry tomatoes (around 20-25 oz)</label><br>
 
 <input type="checkbox" id="ingredient4">
-<label for="ingredient4"> 1 block feta about 8 oz</label><br>
+<label for="ingredient4" class="strikethrough"> 1 block feta about 8 oz</label><br>
 
 <input type="checkbox" id="ingredient5">
-<label for="ingredient5"> 2 cloves garlic finely chopped</label><br>
+<label for="ingredient5" class="strikethrough"> 2 cloves garlic finely chopped</label><br>
 
 <input type="checkbox" id="ingredient6">
-<label for="ingredient6"> a few pinches red pepper flakes</label><br>
+<label for="ingredient6" class="strikethrough"> a few pinches red pepper flakes</label><br>
 
 <input type="checkbox" id="ingredient7">
-<label for="ingredient7"> 1 handful fresh basil leaves</label><br>
+<label for="ingredient7" class="strikethrough"> 1 handful fresh basil leaves</label><br>
 
 <input type="checkbox" id="ingredient8">
-<label for="ingredient8"> salt and pepper</label><br>
+<label for="ingredient8" class="strikethrough"> salt and pepper</label><br>
 
 <h2>Recipe Steps</h2>
 
 
-
 <ol>
-  <li>Preheat oven to 400.</li>
-  <li>Add olive oil to a baking dish and toss with whole cherry tomatoes, salt and pepper until everything is coated.</li>
-  <li>Add the feta in the middle and top with a splash more of olive oil plus a few cranks of fresh pepper. Bake for 30 minutes.</li>
-  <li>Meanwhile, prepare bowtie pasta according to directions then strain.</li>
-  <li>After the 30 minutes has past, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.</li>
-  <li>Remove the baking dish from the oven and add garlic and red pepper flakes and stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.</li>
-  <li>Toss in the pasta and stir one more time.</li>
-  <li>Finish with fresh basil, another splash of olive oil and season with salt and pepper.</li>
+  <li id="step1" onclick="crossoff(this, 'grey')">Preheat oven to 400.</li>
+  <li id="step2" onclick="crossoff(this, 'grey')">Add olive oil to a baking dish and toss with whole cherry tomatoes, salt and pepper until everything is coated.</li>
+  <li id="step3" onclick="crossoff(this, 'grey')">Add the block of feta in the middle and top with a splash more of olive oil plus a few cranks of fresh pepper. </li>
+  <li id="step4" onclick="crossoff(this, 'grey')">Bake for 30 minutes.</li>
+  <li id="step5" onclick="crossoff(this, 'grey')">Meanwhile, prepare bowtie pasta according to directions then strain.</li>
+  <li id="step6" onclick="crossoff(this, 'grey')">After the 30 minutes has past, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.</li>
+  <li id="step7" onclick="crossoff(this, 'grey')">Remove the baking dish from the oven and add garlic and red pepper flakes to taste.
+  <li id="step8" onclick="crossoff(this, 'grey')">Stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.</li>
+  <li id="step9" onclick="crossoff(this, 'grey')">Toss in the pasta and stir one more time.</li>
+  <li id="step10" onclick="crossoff(this, 'grey')">Finish with fresh basil, another splash of olive oil and season with salt and pepper.</li>
 </ol> 
 
 
@@ -182,15 +194,15 @@
 </div>
 
 
-<div class="container">
+<div class="container" style="background-color:white;">
   <h2>Progress Bar With Label</h2>
   <div class="progress">
-    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-      70%
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+      0%
     </div>
   </div>
 
-  <button onclick="updateProgress()">Update Progress</button> 
+  <!-- <button onclick="updateProgress()">Update Progress</button>  -->
 
 </div>
 
