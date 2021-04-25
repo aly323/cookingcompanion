@@ -23,6 +23,9 @@
             float:center;
             bottom: 0;
           }
+          .recipe-steps {
+            cursor: pointer;
+          }
         </style>
     </head>
       
@@ -165,7 +168,7 @@
 <h2>Recipe Steps</h2>
 
 
-<ol>
+<ol class = "recipe-steps">
   <li id="step1" onclick="crossoff(this, 'grey')">Preheat oven to 400.</li>
   <li id="step2" onclick="crossoff(this, 'grey')">Add olive oil to a baking dish and toss with whole cherry tomatoes, salt and pepper until everything is coated.</li>
   <li id="step3" onclick="crossoff(this, 'grey')">Add the block of feta in the middle and top with a splash more of olive oil plus a few cranks of fresh pepper. </li>
