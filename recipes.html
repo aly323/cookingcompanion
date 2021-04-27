@@ -3,6 +3,44 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Recipes Page</title>
+
+        <style>
+          img {
+            width: 200px;
+            height: auto;
+          }
+
+          * {
+            box-sizing: border-box;
+          }
+
+          .flex-container {
+            display: flex;
+            flex-direction: row;
+            font-size: 30px;
+            text-align: center;
+          }
+
+          .flex-item-left {
+            background-color: #f1f1f1;
+            padding: 10px;
+            flex: 50%;
+          }
+
+          .flex-item-right {
+            background-color: #f1f1f1;
+            padding: 10px;
+            flex: 50%;
+          }
+
+          /* Responsive layout - makes a one column-layout instead of two-column layout */
+          @media (max-width: 800px) {
+            .flex-container {
+              flex-direction: column;
+            }
+          }
+
+        </style>
       </head>
       <body>
           <!-- Navigation bar  -->
@@ -41,19 +79,32 @@
 
 <h1>Browse our assortment of recipes!</h1>
 
-<ul>
-  <li>TODO: make it look nicer -amy</li>
-</ul>
-
 <h2>Our Chosen Recipe</h2>
-<a href="pasta.html">Baked Feta Pasta</a>
+<div class="flex-container">
+  <div class="flex-item-left"><a href="pasta.html">Baked Feta Pasta</a>
+  </div>
+  <div class="flex-item-right"><img src="https://grilledcheesesocial.com/wp-content/uploads/2019/06/baked-feta-pasta-tomatoes-grilled-cheese-social-7-600x900.jpg"></div>
+</div>
+
 <br><br>
 
 <h2>Other Recipes (links go to websites)</h2>
 <h4>Food</h4>
-<a href="https://www.skinnytaste.com/spinach-lasagna-rolls/">Spinach Lasagna Roll Ups</a><br>
-<a href="https://oursaltykitchen.com/mediterranean-chickpea-salad/">Mediterranean Chickpea Salad</a><br>
-<a href="https://www.eatingbirdfood.com/summer-greek-quinoa-salad/">Greek Quinoa Salad</a><br>
+<div class="flex-container">
+  <div class="flex-item-left"><a href="https://www.skinnytaste.com/spinach-lasagna-rolls/">Spinach Lasagna Roll Ups</a><img src="https://www.skinnytaste.com/wp-content/uploads/2010/02/Spinach-Lasagna-Rolls-1-7.jpg">
+  </div>
+  <div class="flex-item-right"><a href="https://oursaltykitchen.com/mediterranean-chickpea-salad/">Mediterranean Chickpea Salad</a><img src="https://nitrocdn.com/VQKODMbqaZMLjwrwUHfTezrhgHregWNT/assets/static/optimized/rev-e52119f/wp-content/uploads/2019/06/mediterranean-chickpea-salad.jpg"></div>
+</div>
+
+<div class="flex-container">
+  <div class="flex-item-left"><a href="https://oursaltykitchen.com/mediterranean-chickpea-salad/">Mediterranean Chickpea Salad</a>
+  </div>
+  <div class="flex-item-right"><img src="https://nitrocdn.com/VQKODMbqaZMLjwrwUHfTezrhgHregWNT/assets/static/optimized/rev-e52119f/wp-content/uploads/2019/06/mediterranean-chickpea-salad.jpg"></div>
+</div>
+
+
+
+<!-- <a href="https://www.eatingbirdfood.com/summer-greek-quinoa-salad/">Greek Quinoa Salad</a><br>
 <a href="https://iheartvegetables.com/oven-baked-tostadas/">Vegetarian Tostadas</a><br>
 <a href="https://www.sixvegansisters.com/2020/03/19/sweet-sour-tofu/">Sweet & Sour Tofu</a><br>
 <a href="https://forksandfolly.com/2018/05/yummy-thai-peanut-veggie-rice-bowls/">Thai Peanut Veggie Rice Bowls</a><br>
@@ -77,20 +128,29 @@
 <a href="https://www.spendwithpennies.com/crab-rangoon-crab-cream-cheese-filled-crispy-wontons/">Crab Rangoon</a><br>
 <a href="https://www.fooduzzi.com/2016/03/thai-peanut-hummus/">Thai Peanut Hummus</a><br>
 <a href="https://www.thegunnysack.com/watermelon-salsa-recipe/">Watermelon Salsa</a><br>
-<a href="https://togetherasfamily.com/avocado-dip/">Avocado Dip</a><br><br>
+<a href="https://togetherasfamily.com/avocado-dip/">Avocado Dip</a><br><br> -->
 
 
 
 <h4>Drinks</h4>
-<a href="https://lovecreatecelebrate.com/the-perfect-watermelon-lemonade/">Watermelon Lemonade</a><br>
-<a href="http://www.happyandharried.com/2016/04/21/orange-iced-tea/">Orange Iced Tea</a><br>
-<a href="https://cincyshopper.com/peppermint-white-hot-chocolate/">Peppermint White Hot Chocolate</a><br>
-<a href="https://www.sixsistersstuff.com/recipe/strawberry-kiwi-smoothie/?epik=dj0yJnU9bU9EUGoyU0VLMi0tenhZU2Z5REVndjhZMlh4NUhWdWgmcD0wJm49RUFLaTdmTERSbERaV3dYdmVEY0VXdyZ0PUFBQUFBR0I0Uk8w">Strawberry Kiwi Smoothie</a><br><br>
+<div class="flex-container">
+  <div class="flex-item-left"><a href="https://lovecreatecelebrate.com/the-perfect-watermelon-lemonade/">Watermelon Lemonade</a><img src="https://lovecreatecelebrate.com/wp-content/uploads/2016/06/watermelon-lemonade.jpg">
+  </div>
+  <div class="flex-item-right"><a href="http://www.happyandharried.com/2016/04/21/orange-iced-tea/">Orange Iced Tea</a><img src="https://i2.wp.com/www.happyandharried.com/wp-content/uploads/2016/04/Orange-Iced-Tea-for-Summer.jpg?w=736"></div>
+</div>
+
+<!-- <a href="https://cincyshopper.com/peppermint-white-hot-chocolate/">Peppermint White Hot Chocolate</a><br>
+<a href="https://www.sixsistersstuff.com/recipe/strawberry-kiwi-smoothie/?epik=dj0yJnU9bU9EUGoyU0VLMi0tenhZU2Z5REVndjhZMlh4NUhWdWgmcD0wJm49RUFLaTdmTERSbERaV3dYdmVEY0VXdyZ0PUFBQUFBR0I0Uk8w">Strawberry Kiwi Smoothie</a><br><br> -->
 
 <h4>Dessert</h4>
-<a href="https://cincyshopper.com/no-bake-reeses-peanut-butter-cheesecake/">No Bake Reese’s Peanut Butter Cheesecake</a><br>
-<a href="https://afarmgirlskitchen.com/jelly-donuts/">Homemade Jelly Donuts</a><br>
-<a href="https://princesspinkygirl.com/smore-bars/">S'mores Bars</a><br>
+<div class="flex-container">
+  <div class="flex-item-left"><a href="https://cincyshopper.com/no-bake-reeses-peanut-butter-cheesecake/">Reese’s Peanut Butter Cheesecake</a><img src="https://i2.wp.com/cincyshopper.com/wp-content/uploads/2015/04/No-Bake-Reeses-Peanut-Butter-Cheesecake-3.jpg">
+  </div>
+  <div class="flex-item-right"><a href="https://afarmgirlskitchen.com/jelly-donuts/">Homemade Jelly Donuts</a><img src="https://afarmgirlskitchen.com/wp-content/uploads/2019/06/Jelly-donuts-lined-up-in-pan.jpg"></div>
+</div>
+
+
+<!-- <a href="https://princesspinkygirl.com/smore-bars/">S'mores Bars</a><br>
 <a href="https://www.acozykitchen.com/mint-chocolate-chip-macarons/">Mint Chocolate Chip Macarons</a><br>
 <a href="https://www.5boysbaker.com/homemade-fresh-raspberry-ice-cream/">Fresh Raspberry Homemade Ice Cream</a><br>
 <a href="https://www.dinneratthezoo.com/cosmic-brownies/">Cosmic Brownies</a><br>
@@ -101,7 +161,7 @@
 <a href="https://cookingwithcocktailrings.com/2017-cannolis/">Classic Homemade Cannoli</a><br>
 <a href="https://www.serenabakessimplyfromscratch.com/2012/08/flaky-blackberry-turnovers.html?m=1">Flaky Blackberry Turnovers</a><br>
 <a href="https://barefeetinthekitchen.com/perfect-rice-krispy-treats-recipe/">Rice Krispy Treats</a><br>
-<a href="https://www.momontimeout.com/peanut-butter-banana-chocolate-chip-cookies/">Peanut Butter Banana Chocolate Chip Cookies</a>
+<a href="https://www.momontimeout.com/peanut-butter-banana-chocolate-chip-cookies/">Peanut Butter Banana Chocolate Chip Cookies</a> -->
 
 </div>
 
