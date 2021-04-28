@@ -8,6 +8,7 @@
           img {
             width: 200px;
             height: auto;
+            padding-bottom: 10px;
           }
 
           * {
@@ -22,13 +23,13 @@
           }
 
           .flex-item-left {
-            background-color: #f1f1f1;
+            background-color: #f1f1f1; 
             padding: 10px;
             flex: 50%;
           }
 
           .flex-item-right {
-            background-color: #f1f1f1;
+            background-color: #f1f1f1; 
             padding: 10px;
             flex: 50%;
           }
@@ -40,6 +41,29 @@
             }
           }
 
+      
+          button {
+            float:right;
+            background-color:#ffffff;
+            padding: 10px;
+            margin:8px;
+          }
+          button:hover {
+            background-color: rgb(163, 233, 165);
+          }
+
+          h2 {
+            text-align:center; 
+            background-color: rgb(163, 233, 165); 
+            padding:15px;
+          }
+
+          h3 {
+            text-align:center; 
+            background-color: #a4a5a4d2;
+            padding:15px;
+            font-style: italic;
+          }
         </style>
       </head>
       <body>
@@ -81,51 +105,38 @@
 
 <h2>Our Chosen Recipe</h2>
 <div class="flex-container">
-  <div class="flex-item-left"><a href="pasta.html">Baked Feta Pasta</a>
-  </div>
-  <div class="flex-item-right"><img src="https://grilledcheesesocial.com/wp-content/uploads/2019/06/baked-feta-pasta-tomatoes-grilled-cheese-social-7-600x900.jpg"></div>
+  <div class="flex-item-left"><a href="pasta.html">Baked Feta Pasta<br><br><img src="https://grilledcheesesocial.com/wp-content/uploads/2019/06/baked-feta-pasta-tomatoes-grilled-cheese-social-7-600x900.jpg"></a></div>
+  <div class="flex-item-right" style="font-size: 30px; font-style:italic;"> <br><br><br><br><div style="padding:20px;">Have you seen this viral Tiktok recipe? It's super easy and delicious!</div></div>
 </div>
 
 <br><br>
 
-<h2>Other Recipes (links go to websites)</h2>
-<h4>Food</h4>
-<div class="flex-container">
-  <div class="flex-item-left"><a href="https://www.skinnytaste.com/spinach-lasagna-rolls/">Spinach Lasagna Roll Ups</a><img src="https://www.skinnytaste.com/wp-content/uploads/2010/02/Spinach-Lasagna-Rolls-1-7.jpg">
-  </div>
-  <div class="flex-item-right"><a href="https://oursaltykitchen.com/mediterranean-chickpea-salad/">Mediterranean Chickpea Salad</a><img src="https://nitrocdn.com/VQKODMbqaZMLjwrwUHfTezrhgHregWNT/assets/static/optimized/rev-e52119f/wp-content/uploads/2019/06/mediterranean-chickpea-salad.jpg"></div>
-
-</div>
-
-
+<h2>Other Recipes</h2><a href="food.html"><button>More...</button></a>
+<h3>Food</h3>
 
 <div class="flex-container">
-  <div class="flex-item-left"><a href="https://oursaltykitchen.com/mediterranean-chickpea-salad/">Mediterranean Chickpea Salad</a>
-  </div>
-  <div class="flex-item-right"><img src="https://nitrocdn.com/VQKODMbqaZMLjwrwUHfTezrhgHregWNT/assets/static/optimized/rev-e52119f/wp-content/uploads/2019/06/mediterranean-chickpea-salad.jpg"></div>
+  <div class="flex-item-left"><a href="https://www.skinnytaste.com/spinach-lasagna-rolls/">Spinach Lasagna Roll Ups<br><br><img src="https://www.skinnytaste.com/wp-content/uploads/2010/02/Spinach-Lasagna-Rolls-1-7.jpg"></a></div>
+  <div class="flex-item-right"><a href="https://oursaltykitchen.com/mediterranean-chickpea-salad/">Mediterranean Chickpea Salad<br><br><img src="https://nitrocdn.com/VQKODMbqaZMLjwrwUHfTezrhgHregWNT/assets/static/optimized/rev-e52119f/wp-content/uploads/2019/06/mediterranean-chickpea-salad.jpg"></a></div>
 </div>
 
-<a href="food.html"><button>See more</button></a>
+<br>
 
-
-<h4>Drinks</h4>
+<a href="drinks.html"><button>More...</button></a>
+<h3>Drinks</h3>
 <div class="flex-container">
-  <div class="flex-item-left"><a href="https://lovecreatecelebrate.com/the-perfect-watermelon-lemonade/">Watermelon Lemonade</a><img src="https://lovecreatecelebrate.com/wp-content/uploads/2016/06/watermelon-lemonade.jpg">
-  </div>
-  <div class="flex-item-right"><a href="http://www.happyandharried.com/2016/04/21/orange-iced-tea/">Orange Iced Tea</a><img src="https://i2.wp.com/www.happyandharried.com/wp-content/uploads/2016/04/Orange-Iced-Tea-for-Summer.jpg?w=736"></div>
+  <div class="flex-item-left"><a href="https://lovecreatecelebrate.com/the-perfect-watermelon-lemonade/">Watermelon Lemonade<br><br><img src="https://lovecreatecelebrate.com/wp-content/uploads/2016/06/watermelon-lemonade.jpg"></a></div>
+  <div class="flex-item-right"><a href="http://www.happyandharried.com/2016/04/21/orange-iced-tea/">Orange Iced Tea<br><br><img src="https://i2.wp.com/www.happyandharried.com/wp-content/uploads/2016/04/Orange-Iced-Tea-for-Summer.jpg?w=736"></a></div>
 </div>
+<br>
 
-<a href="drinks.html"><button>See more</button></a>
+<a href="dessert.html"><button>More...</button></a>
+<h3>Dessert</h3>
 
-<h4>Dessert</h4>
 <div class="flex-container">
-  <div class="flex-item-left"><a href="https://cincyshopper.com/no-bake-reeses-peanut-butter-cheesecake/">Reese’s Peanut Butter Cheesecake</a><img src="https://i2.wp.com/cincyshopper.com/wp-content/uploads/2015/04/No-Bake-Reeses-Peanut-Butter-Cheesecake-3.jpg">
-  </div>
-  <div class="flex-item-right"><a href="https://afarmgirlskitchen.com/jelly-donuts/">Homemade Jelly Donuts</a><img src="https://afarmgirlskitchen.com/wp-content/uploads/2019/06/Jelly-donuts-lined-up-in-pan.jpg"></div>
+  <div class="flex-item-left"><a href="https://cincyshopper.com/no-bake-reeses-peanut-butter-cheesecake/">Reese’s Peanut Butter Cheesecake<br><br><img src="https://i2.wp.com/cincyshopper.com/wp-content/uploads/2015/04/No-Bake-Reeses-Peanut-Butter-Cheesecake-3.jpg"></a></div>
+  <div class="flex-item-right"><a href="https://afarmgirlskitchen.com/jelly-donuts/">Homemade Jelly Donuts<br><br><img src="https://afarmgirlskitchen.com/wp-content/uploads/2019/06/Jelly-donuts-lined-up-in-pan.jpg"></a></div>
 </div>
-
-<a href="dessert.html"><button>See more</button></a>
-
+<br>
 
 </div>
 
