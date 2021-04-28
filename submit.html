@@ -28,6 +28,13 @@
           input[type=submit]:hover {
             background-color: #45a049;
           }
+
+          h2 {
+            text-align:center; 
+            background-color: rgb(163, 233, 165); 
+            padding:15px;
+
+          }
           
           </style>
     </head>
@@ -68,36 +75,35 @@
 
 <!-- PAGE CONTENT -->
 
-<h1>Other Online Resources</h1>
-<ol>
-  <li> <a href="https://www.voicipe.com/">Voicipe</a> </li>
-</ol>
-
-<h1>What would you like us to add to our website?</h1>
-
-
-</div>
-
+<h2 style="background-color:rgb(163, 233, 165); ">Submit a suggestion!</h2>
+<div style="font-style:italic; font-size: 25px; text-align:center;">What would you like us to add to our website?</div>
 <div style="padding:20px;">
   <!-- currently no action upon submission -->
-  <form action="success.html">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <form action="success.html" style="padding:30px;">
+    <label for="fname" style="font-size:25px;">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.."><br><br>
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <label for="lname" style="font-size:25px;">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.."><br><br>
 
-    <label for="recipe">Suggested recipe link?</label>
-    <input type="text" id="recipe" name="recipe" placeholder="Website link..">
+    <label for="recipe" style="font-size:25px;">Suggested recipe link?</label>
+    <input type="text" id="recipe" name="recipe" placeholder="Website link.."><br><br>
     
   
-    <label for="feedback">Any other feedback for our website?</label>
-    <input type="text" id="feedback" name="feedback" placeholder="Pros and cons are..">
+    <label for="feedback" style="font-size:25px;">Any other feedback for our website?</label>
+    <input type="text" id="feedback" name="feedback" placeholder="Pros and cons are.."><br><br>
 
     <input type="submit" value="Submit">
   </form>
 </div>
 
+<h2 style="text-align:center; background-color: #a4a5a4d2; padding:15px;">Other Helpful Resources</h2>
+<ol style="font-size: 20px; line-height: 1.6;">
+  <li> <a href="https://www.voicipe.com/">Voicipe</a> - another voice app project to assist with cooking! </li>
+  <li> <a href="https://www.creuna.com/en/cases/carla-from-arla/">Carla</a> - Voice assistance paired with Google Alexa to assist with cooking!</li>
+  <li> etc...</li>
+</ol>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
