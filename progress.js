@@ -1,5 +1,9 @@
 var progress = 0;
 
+// the notes start off unstriked
+var supply1noteStrike = false;
+var sauce2noteStrike = false;
+
 // update progress bar
 function updateProgress(stepNum, isCrossed) {
     //var instructionNum = 8;
@@ -38,4 +42,39 @@ function crossoff(stepNum, clr) {
 
         updateProgress(stepNum, true);
     }
+}
+
+// cross-off the note underneath the checkbox
+function crossOffSupplyNote() {
+    var supply1 = document.getElementById("supply1");
+    var supply1note = document.getElementById("supply1note");
+    
+
+    if (supply1noteStrike) { // note is currently striked
+        supply1note.style.textDecoration = "none";
+        supply1noteStrike = false;
+    } else {
+        supply1note.style.textDecoration = "line-through";
+        supply1noteStrike = true;
+    }
+
+
+}
+
+
+// cross-off the note underneath the checkbox
+function crossOffSauceNote() {
+    var sauce2 = document.getElementById("sauce2");
+    var sauce2note = document.getElementById("sauce2note");
+
+
+    if (sauce2noteStrike) { // note is currently striked
+        sauce2note.style.textDecoration = "none";
+        sauce2noteStrike = false;
+    } else {
+        sauce2note.style.textDecoration = "line-through";
+        sauce2noteStrike = true;
+    }
+
+
 }

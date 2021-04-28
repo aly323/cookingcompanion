@@ -144,9 +144,9 @@
 <img src="images/pasta1.jpg" width="476" height="457" alt="The pasta after making the recipe">
 
 <h2>Supply Checklist</h2>
-<input type="checkbox">
-<label class="strikethrough"> Baking dish</label><br>
-<p class="tab1">Small enough so that the tomatoes are crowded together and touching but deep enough to be able to hold the pasta at the end</p>
+<input type="checkbox" onclick="crossOffSupplyNote()">
+<label class="strikethrough" id="supply1"> Baking dish</label><br>
+<p class="tab1" id="supply1note">Small enough so that the tomatoes are crowded together and touching but deep enough to be able to hold the pasta at the end</p>
 <br>
 <input type="checkbox">
 <label class="strikethrough"> Strainer</label><br>
@@ -169,10 +169,10 @@
 <input type="checkbox">
 <label class="strikethrough"> 1/2 cup olive oil + more for finishing</label><br>
 
-<input type="checkbox">
-<label class="strikethrough"> 2 10oz boxes of cherry tomatoes (around 20-25 oz)
+<input type="checkbox" onclick="crossOffSauceNote()">
+<label class="strikethrough" id="sauce2"> 2 10oz boxes of cherry tomatoes (around 20-25 oz)
 </label><br>
-<p class="tab1">TRICK: have tomatoes a little wilted and old </p> <br>
+<p class="tab1" id="sauce2note">TRICK: have tomatoes a little wilted and old </p> <br>
 
 <input type="checkbox">
 <label class="strikethrough"> 1 (8 oz) block feta </label><br>
