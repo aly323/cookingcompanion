@@ -6,7 +6,7 @@
 
         <style>
           .settings-div {
-              background-color: #4fe4e9;
+            background-color: #a4a5a4d2;
           }
 
           input[type=checkbox]:checked + label.strikethrough{
@@ -33,6 +33,36 @@
             margin: 0px;
             margin-bottom: -10px;
           }
+
+          h1 {
+            text-align:center; 
+            background-color: rgb(163, 233, 165); 
+            padding:15px;
+          }
+
+          .flex-container {
+            display: flex;
+            flex-direction: row;
+            font-size: 20px;
+          }
+
+          .flex-item-left {
+            padding: 10px;
+            flex: 50%;
+          }
+
+          .flex-item-right {
+            padding: 10px;
+            flex: 50%;
+          }
+
+          /* Responsive layout - makes a one column-layout instead of two-column layout */
+          @media (max-width: 800px) {
+            .flex-container {
+              flex-direction: column;
+            }
+          }
+
         </style>
     </head>
       
@@ -77,17 +107,10 @@
     <script type=text/javascript src="progress.js"></script>
 
 <!-- PAGE CONTENT -->
+<button onclick="toggleSettings()" style="float:right; padding: 10px; margin:8px;">Voice settings</button>
 
 <h1>Baked Feta Pasta</h1>
-<p> Scroll down or click BUTTON to activate voice control </p>
-
 <br>
-
-
-
-<!-- SETTINGS FOR VOICE -->
-
-<button onclick="toggleSettings()">Change voice settings</button>
 
 
 <div class="settings-div" id="changeSettings" style="display:none;">
@@ -140,8 +163,18 @@
 
 <br><br>
 
+<div style="background-color:#f1f1f1; font-size:20; padding: 20px;">
+<h2>Speech to Text</h2>
+        <p>Click on the below button and speak something.</p>
+        <p> Things you can say: step one, step two, ..., step eight, ingredient one, ingredient two, ..., ingredient eight</p>
+        <p><button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#bebebed2;">Speech to Text</button> &nbsp; <span id="action"></span></p>
+        <div id="output" class="hide"></div>
+</div>
 
-<img src="images/pasta1.jpg" width="476" height="457" alt="The pasta after making the recipe">
+<div class="flex-container">
+  <div class="flex-item-left" style="font-style:italic;"><br><br><img src="images/pasta1.jpg" width="476" height="457" alt="The pasta after making the recipe"><br><br>Emmely's baked Tiktok pasta!
+  </div>
+  <div class="flex-item-right">
 
 <h2>Supply Checklist</h2>
 <input type="checkbox" onclick="crossOffSupplyNote()">
@@ -194,10 +227,16 @@
 <input type="checkbox">
 <label class="strikethrough"> Fresh pepper</label><br>
 
+</div>
+</div>
+
+<!-- END OF FLEX CONTAINER -->
+
+
 <h2>Recipe Steps</h2>
 
 
-<ol class = "recipe-steps">
+<ol class = "recipe-steps" style="line-height: 1.6; font-size:20px;">
   <li onclick="crossoff(this, 'grey')"> Preheat oven to 400.</li>
   <li onclick="crossoff(this, 'grey')"> Add 1/2 cup olive oil to a baking dish and toss with whole cherry tomatoes. Salt and pepper until everything is coated.</li>
   <li onclick="crossoff(this, 'grey')"> Place the whole block of feta in the middle of the pan and top with a splash more of olive oil plus a few cranks of fresh pepper.</li>
@@ -215,14 +254,6 @@
 
 
 <a href="https://grilledcheesesocial.com/2019/06/27/baked-feta-pasta-with-tomatoes/">Recipe Source Link</a>
-
-
-
-<h2>Speech to Text</h2>
-        <p>Click on the below button and speak something.</p>
-        <p> Things you can say: step one, step two, ..., step eight, ingredient one, ingredient two, ..., ingredient eight</p>
-        <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button> &nbsp; <span id="action"></span></p>
-        <div id="output" class="hide"></div>
 
 
 </div>
