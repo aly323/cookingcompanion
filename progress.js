@@ -6,11 +6,9 @@ var sauce2noteStrike = false;
 
 // update progress bar
 function updateProgress(stepNum, isCrossed) {
-    //var instructionNum = 8;
-    //var increment = 100 / instructionNum;
-    //var newprogress = progress + increment;
-
-    var increment = 10;
+    var instructionNum = 11;
+    var increment = 100 / instructionNum;
+    
     var newprogress;
 
     if (isCrossed != true)
@@ -23,7 +21,8 @@ function updateProgress(stepNum, isCrossed) {
     $('#progress-bar').attr('aria-valuenow', newprogress).css('width', newprogress+'%');
 
     // change text on the bar
-    document.getElementById("progress-bar").innerHTML = newprogress + "%";
+    newprogress_rounded = Math.round(newprogress * 100) / 100;
+    document.getElementById("progress-bar").innerHTML = newprogress_rounded + "%";
 }
 
 // will cross-off and change the text color of the completed steps
