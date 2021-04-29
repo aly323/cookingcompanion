@@ -10,10 +10,13 @@
 // create global variable that will be the spoken message
 var synth = window.speechSynthesis;
 var msg = new SpeechSynthesisUtterance();
-
+msg.volume = 1;
+msg.rate = 1;
+msg.pitch = 1;
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
 var voices = [];
+
 
 function populateVoiceList() {
     voices = synth.getVoices();
@@ -53,8 +56,8 @@ function decreaseVolume() {
     } else {
         msg.volume = newVol;
     }
-    
-    document.getElementById("currVol").innerHTML = "current volume [between 0 (lowest) and 1 (highest)]: " + msg.volume;
+    var rounded = Math.round(msg.volume * 100) / 100;
+    document.getElementById("currVol").innerHTML = "current volume [between 0 (lowest) and 1 (highest)]: " + rounded;
     
 }
 
@@ -70,8 +73,8 @@ function increaseVolume() {
     } else {
         msg.volume = newVol;
     }
-    
-    document.getElementById("currVol").innerHTML = "current volume [between 0 (lowest) and 1 (highest)]: " + msg.volume;
+    var rounded = Math.round(msg.volume * 100) / 100;
+    document.getElementById("currVol").innerHTML = "current volume [between 0 (lowest) and 1 (highest)]: " + rounded;
     
 }
 
@@ -90,8 +93,8 @@ function increaseRate() {
     } else {
         msg.rate = newRate;
     }
-    
-    document.getElementById("currRate").innerHTML = "current rate [0.1 (lowest) and 10 (highest)]: " + msg.rate;
+    var rounded = Math.round(msg.rate * 100) / 100;
+    document.getElementById("currRate").innerHTML = "current rate [0.1 (lowest) and 10 (highest)]: " + rounded;
 }
 
 
@@ -107,8 +110,8 @@ function decreaseRate() {
     } else {
         msg.rate = newRate;
     }
-    
-    document.getElementById("currRate").innerHTML = "current rate [0.1 (lowest) and 10 (highest)]: " + msg.rate;
+    var rounded = Math.round(msg.rate * 100) / 100;
+    document.getElementById("currRate").innerHTML = "current rate [0.1 (lowest) and 10 (highest)]: " + rounded;
 }
 
 
@@ -127,8 +130,8 @@ function decreasePitch() {
     } else {
         msg.pitch = newPitch;
     }
-    
-    document.getElementById("currPitch").innerHTML = "current pitch [0 (lowest) and 2 (highest)]: " + msg.pitch;
+    var rounded = Math.round(msg.pitch * 100) / 100;
+    document.getElementById("currPitch").innerHTML = "current pitch [0 (lowest) and 2 (highest)]: " + rounded;
 }
 
 function increasePitch() {
@@ -143,8 +146,8 @@ function increasePitch() {
     } else {
         msg.pitch = newPitch;
     }
-    
-    document.getElementById("currPitch").innerHTML = "current pitch [0 (lowest) and 2 (highest)]: " + msg.pitch;
+    var rounded = Math.round(msg.pitch * 100) / 100;
+    document.getElementById("currPitch").innerHTML = "current pitch [0 (lowest) and 2 (highest)]: " + rounded;
 }
 
 // test what the voice sounds like
@@ -207,7 +210,10 @@ function runSpeechRecognition() {
         recognition.onresult = function(event) {
             var transcript = event.results[0][0].transcript;
             var confidence = event.results[0][0].confidence;
-            output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
+            transcript = transcript.toLowerCase();
+            confidence = confidence * 100;
+            var confidence_rounded = Math.round(confidence * 100) / 100;
+            output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence_rounded+"%";
             output.classList.remove("hide");
 
             tts(transcript)
@@ -216,6 +222,13 @@ function runSpeechRecognition() {
          // start recognition
          recognition.start();
 }
+
+var currStep = 0;
+var currSupply = 0;
+var currIngredient = 0;
+var lastMsg = "Nothing to repeat yet";
+
+
 
 // https://dev.to/asaoluelijah/text-to-speech-in-3-lines-of-javascript-b8h
 // convert the given text to speech
@@ -228,6 +241,7 @@ function tts(str_request) {
         
         
         msg.text = getMessage(str_request);
+        lastMsg = msg.text;
         synth.speak(msg);
     } else {
         // Speech Synthesis Not Supported 
@@ -237,43 +251,296 @@ function tts(str_request) {
     
 }
 
+// ---------- SPECIFICALLY FOR PASTA RECIPE -------------------------------
+
+var recipe_steps = [
+    "Preheat oven to 400.", 
+    "Add 1/2 cup olive oil to a baking dish and toss with whole cherry tomatoes. Salt and pepper until everything is coated.", 
+    "Place the whole block of feta in the middle of the pan and top with a splash more of olive oil plus a few cranks of fresh pepper.", 
+    "Bake for 30 minutes.", 
+    "Meanwhile, prepare bowtie pasta according to directions then strain.", 
+    "After the 30 minutes has passed, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.", 
+    "Remove the baking dish from the oven and add garlic and red pepper flakes to taste.", 
+    "Stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.", 
+    "Toss in the pasta and stir one more time.", 
+    "Finish with fresh basil, another splash of olive oil and season with salt and pepper.", 
+    "If the dish is perfectly creamy, then it’s ready to serve! If it’s a little dry, add 1/4 cup pasta water and stir it up."
+];
+
+var recipe_ingredients_pasta = [
+    "1 lb bowtie pasta"
+];
+
+var recipe_ingredients_sauce = [
+    "1/2 cup olive oil + more for finishing", 
+    "2 10oz boxes of cherry tomatoes (around 20-25 oz). TRICK: have tomatoes a little wilted and old", 
+    "1 (8 oz) block feta"
+];
+
+var recipe_ingredients_garnishing = [
+    "2 cloves of fresh garlic finely chopped",
+    "1 handful fresh basil leaves",
+    "A few pinches of red pepper flakes",
+    "Kosher salt",
+    "Fresh pepper"
+];
+
+var recipe_ingredients = [
+    "1 lb bowtie pasta",
+    "1/2 cup olive oil + more for finishing", 
+    "2 10oz boxes of cherry tomatoes (around 20-25 oz). TRICK: have tomatoes a little wilted and old", 
+    "1 (8 oz) block feta",
+    "2 cloves of fresh garlic finely chopped",
+    "1 handful fresh basil leaves",
+    "A few pinches of red pepper flakes",
+    "Kosher salt",
+    "Fresh pepper"
+];
+
+var recipe_supplies = [
+    "Baking dish, Small enough so that the tomatoes are crowded together and touching but deep enough to be able to hold the pasta at the end",
+    "Strainer", 
+    "Large pot", 
+    "Cutting board"
+];
+
+
+function getNextStep() {
+    var nextStep = currStep + 1;
+    var str = "";
+    if (nextStep > recipe_steps.length) {
+        str = "Sorry, there are no more next steps";
+    } else {
+        str = recipe_steps[nextStep - 1];
+        currStep++;
+    }
+
+    return str;
+}
+
+function getPreviousStep() {
+    var previousStep = currStep - 1;
+    var str = "";
+
+    if (previousStep < 1) {
+        str = "Sorry, there are no more previous steps";
+    } else {
+        str = recipe_steps[previousStep - 1];
+        currStep--;
+    }
+
+    return str;
+}
+
+function getNextSupply() {
+    var nextSupply = currSupply + 1;
+    var str = "";
+    if (nextSupply > recipe_supplies.length) {
+        str = "Sorry, there are no more next supplies";
+    } else {
+        str = recipe_supplies[nextSupply - 1];
+        currSupply++;
+    }
+
+    return str;
+}
+
+function getPreviousSupply() {
+    var previousSupply = currSupply - 1;
+    var str = "";
+
+    if (previousSupply < 1) {
+        str = "Sorry, there are no more previous supplies";
+    } else {
+        str = recipe_supplies[previousSupply - 1];
+        currSupply--;
+    }
+
+    return str;
+}
+
+
+function getNextIngredient() {
+    var nextIngredient = currIngredient + 1;
+    var str = "";
+    if (nextIngredient > recipe_ingredients.length) {
+        str = "Sorry, there are no more next ingredients";
+    } else {
+        str = recipe_ingredients[nextIngredient - 1];
+        currIngredient++;
+    }
+
+    return str;
+}
+
+function getPreviousIngredient() {
+    var previousIngredient = currIngredient - 1;
+    var str = "";
+
+    if (previousIngredient < 1) {
+        str = "Sorry, there are no more previous ingredients";
+    } else {
+        str = recipe_ingredients[previousIngredient - 1];
+        currIngredient--;
+    }
+
+    return str;
+}
+
+function getSupplies() {
+    var str = "";
+    var i;
+    for (var i=0; i < recipe_supplies.length; i++) {
+        var supply = recipe_supplies[i];
+        str += supply + ". ";
+    }
+
+    return str;
+}
+
+function getPastaIngredients() {
+    var str = "";
+    var i;
+    for (var i=0; i < recipe_ingredients_pasta.length; i++) {
+        var supply = recipe_ingredients_pasta[i];
+        str += supply + ". ";
+    }
+
+    return str;
+}
+
+function getSauceIngredients() {
+    var str = "";
+    var i;
+    for (var i=0; i < recipe_ingredients_sauce.length; i++) {
+        var supply = recipe_ingredients_sauce[i];
+        str += supply + ". ";
+    }
+
+    return str;
+}
+
+function getGarnishingIngredients() {
+    var str = "";
+    var i;
+    for (var i=0; i < recipe_ingredients_garnishing.length; i++) {
+        var supply = recipe_ingredients_garnishing[i];
+        str += supply + ". ";
+    }
+
+    return str;
+}
+
+
 // get the message needed based on what user requested
 function getMessage(str_request) {
+
+    // individual steps
     if (str_request == "step one" || str_request == "step 1") {
-        return "Preheat oven to 400.";
+        return recipe_steps[0];
     } else if (str_request == "step two" || str_request == "step 2") {
-        return "Add olive oil to a baking dish and toss with whole cherry tomatoes, salt and pepper until everything is coated.";
+        return recipe_steps[1];
     } else if (str_request == "step three" || str_request == "step 3") {
-        return "Add the feta in the middle and top with a splash more of olive oil plus a few cranks of fresh pepper. Bake for 30 minutes.";
+        return recipe_steps[2];
     } else if (str_request == "step four" || str_request == "step 4") {
-        return "Meanwhile, prepare bowtie pasta according to directions then strain.";
+        return recipe_steps[3];
     } else if (str_request == "step five" || str_request == "step 5") {
-        return "After the 30 minutes has past, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.";
+        return recipe_steps[4];
     } else if (str_request == "step six" || str_request == "step 6") {
-        return "Remove the baking dish from the oven and add garlic and red pepper flakes and stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.";
+        return recipe_steps[5];
     } else if (str_request == "step seven" || str_request == "step 7") {
-        return "Toss in the pasta and stir one more time.";
+        return recipe_steps[6];
     } else if (str_request == "step eight" || str_request == "step 8") {
-        return "Finish with fresh basil, another splash of olive oil and season with salt and pepper.";
-    } else if (str_request == "ingredient one" || str_request == "ingredient 1") {
-        return "1 lb bowtie pasta";
-    } else if (str_request == "ingredient two" || str_request == "ingredient 2" || str_request == "ingredient to") {
-        return "1/2 cup olive oil + more for finishing";
-    } else if (str_request == "ingredient three" || str_request == "ingredient 3") {
-        return "2 boxes cherry tomatoes (around 20-25 oz)";
-    } else if (str_request == "ingredient four" || str_request == "ingredient 4" || str_request == "ingredient for") {
-        return "1 block feta about 8 oz";
-    } else if (str_request == "ingredient five" || str_request == "ingredient 5") {
-        return "2 cloves garlic finely chopped";
-    } else if (str_request == "ingredient six" || str_request == "ingredient 6") {
-        return "a few pinches red pepper flakes";
-    } else if (str_request == "ingredient seven" || str_request == "ingredient 7") {
-        return "1 handful fresh basil leaves";
-    } else if (str_request == "ingredient eight" || str_request == "ingredient 8") {
-        return "salt and pepper";
+        return recipe_steps[7];
+    } else if (str_request == "step nine" || str_request == "step 9") {
+        return recipe_steps[8];
+    } else if (str_request == "step ten" || str_request == "step 10") {
+        return recipe_steps[9];
+    } else if (str_request == "step eleven" || str_request == "step 11") {
+        return recipe_steps[10];
     }
+    
+    
+    // individual pasta ingredients
+    else if (str_request == "pasta ingredient one" || str_request == "pasta ingredient 1") {
+        return recipe_ingredients_pasta[0];
+    } 
+
+
+    // individual sauce ingredients
+    else if (str_request == "sauce ingredient one" || str_request == "sauce ingredient 1") {
+        return recipe_ingredients_sauce[0];
+    } else if (str_request == "sauce ingredient two" || str_request == "sauce ingredient 2" || str_request == "sauce ingredient to") {
+        return recipe_ingredients_sauce[1];
+    } else if (str_request == "sauce ingredient three" || str_request == "sauce ingredient 3") {
+        return recipe_ingredients_sauce[2];
+    } 
+
+    // individual garnishing ingredients
+    else if (str_request == "garnishing ingredient one" || str_request == "garnishing ingredient 1") {
+        return recipe_ingredients_garnishing[0];
+    } else if (str_request == "garnishing ingredient two" || str_request == "garnishing ingredient 2" || str_request == "garnishing ingredient to") {
+        return recipe_ingredients_garnishing[1];
+    } else if (str_request == "garnishing ingredient three" || str_request == "garnishing ingredient 3") {
+        return recipe_ingredients_garnishing[2];
+    } else if (str_request == "garnishing ingredient four" || str_request == "garnishing ingredient 4" || str_request == "garnishing ingredient for") {
+        return recipe_ingredients_garnishing[3];
+    } else if (str_request == "garnishing ingredient five" || str_request == "garnishing ingredient 5") {
+        return recipe_ingredients_garnishing[4];
+    }
+
+
+    // individual supply items
+    else if (str_request == "supply one" || str_request == "supply 1") {
+        return recipe_supplies[0];
+    } else if (str_request == "supply two" || str_request == "supply 2" || str_request == "supply to") {
+        return recipe_supplies[1];
+    } else if (str_request == "supply three" || str_request == "supply 3") {
+        return recipe_supplies[2];
+    } else if (str_request == "supply four" || str_request == "supply 4" || str_request == "supply for") {
+        return recipe_supplies[3];
+    }
+
+    // previous/next step
+    else if (str_request == "previous step") {
+        return getPreviousStep();
+    } else if (str_request == "next step") {
+        return getNextStep();
+    } 
+
+    // previous/next supplies
+    else if (str_request == "previous supply") {
+        return getPreviousSupply();
+    } else if (str_request == "next supply") {
+        return getNextSupply();
+    } 
+
+    // previous/next ingredients
+    else if (str_request == "previous ingredient") {
+        return getPreviousIngredient();
+    } else if (str_request == "next ingredient") {
+        return getNextIngredient();
+    } 
+
+    // read all
+    else if (str_request == "read supplies") {
+        return getSupplies();
+    } else if (str_request == "read pasta ingredients") {
+        return getPastaIngredients();
+    } else if (str_request == "read sauce ingredients") {
+        return getSauceIngredients();
+    } else if (str_request == "read garnishing ingredients") {
+        return getGarnishingIngredients();
+    }
+    
+    else if (str_request == "repeat") {
+        return lastMsg;
+    }
+
     
     else {
         return "Sorry, request not recognized."
     }
 }
+
+

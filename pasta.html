@@ -117,7 +117,7 @@
 
 
 <!-- select gets populated from JavaScript -->
-<select class = "select"></select>
+<select class="select"></select>
 
 <br><br>
 
@@ -127,7 +127,7 @@
 <button type="button" onclick="increaseVolume()">+</button>
 
 
-<p id="currVol">current volume [between 0 (lowest) and 1 (highest)]: N/A</p>
+<p id="currVol">current volume [between 0 (lowest) and 1 (highest)]: 1</p>
 
 <br>
 
@@ -136,7 +136,7 @@
 <button type="button" onclick="decreaseRate()">-</button>
 <button type="button" onclick="increaseRate()">+</button>
 
-<p id="currRate">current rate [0.1 (lowest) and 10 (highest)]: N/A</p>
+<p id="currRate">current rate [0.1 (lowest) and 10 (highest)]: 1</p>
 
 <br>
 
@@ -145,7 +145,7 @@
 <button type="button" onclick="decreasePitch()">-</button>
 <button type="button" onclick="increasePitch()">+</button>
 
-<p id="currPitch">current pitch [0 (lowest) and 2 (highest)]: N/A</p>
+<p id="currPitch">current pitch [0 (lowest) and 2 (highest)]: 1</p>
 
 
 <br><br>
@@ -165,7 +165,22 @@
 <div style="background-color:#f1f1f1; font-size:20; padding: 20px;">
 <h2>Speech to Text</h2>
         <p>Click on the below button and speak something.</p>
-        <p> Things you can say: step one, step two, ..., step eight, ingredient one, ingredient two, ..., ingredient eight</p>
+        <p> Things you can say: </p>
+        <ul>
+          <!-- <li>supply one, ..., supply four</li> -->
+          <!-- <li>pasta ingredient one</li>
+          <li>sauce ingredient one, ..., sauce ingredient three</li>
+          <li>garnishing ingredient one, ..., garnishing ingredient five</li> -->
+          <li>step one, step two, ..., step eleven</li> 
+          <li>previous supply, next supply</li>
+          <li>previous ingredient, next ingredient</li>
+          <li>previous step, next step</li>
+          <li>repeat</li>
+          <li>read supplies</li>
+          <li>read pasta ingredients</li>
+          <li>read sauce ingredients</li>
+          <li>read garnishing ingredients</li>
+        </ul>
         <p><button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#bebebed2;">Speech to Text</button> &nbsp; <span id="action"></span></p>
         <div id="output" class="hide"></div>
 </div>
@@ -246,7 +261,7 @@
   <li onclick="crossoff(this, 'grey')"> Stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.</li>
   <li onclick="crossoff(this, 'grey')"> Toss in the pasta and stir one more time.</li>
   <li onclick="crossoff(this, 'grey')"> Finish with fresh basil, another splash of olive oil and season with salt and pepper.</li>
-  <li onclick="crossoff(this, 'grey')"> If the dish is perfectly creamy, then it’s ready to serve! If it’s a little dry, add ¼ cup pasta water and stir it up.</li>
+  <li onclick="crossoff(this, 'grey')"> If the dish is perfectly creamy, then it’s ready to serve! If it’s a little dry, add 1/4 cup pasta water and stir it up.</li>
   
 </ol> 
 
@@ -266,7 +281,6 @@
     </div>
   </div>
 
-  <!-- <button onclick="updateProgress()">Update Progress</button>  -->
 
 </div>
 
