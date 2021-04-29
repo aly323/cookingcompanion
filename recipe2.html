@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Pasta Page</title>
+
+        <style>
+          .settings-div {
+            background-color: #a4a5a4d2;
+          }
+
+          input[type=checkbox]:checked + label.strikethrough{
+              text-decoration: line-through;
+          }
+
+          body {
+            line-height: 1.6;
+            padding-bottom: 30px;
+          }
+
+          .container {
+            position:fixed;
+            float:center;
+            bottom: 0;
+          }
+          .recipe-steps {
+            cursor: pointer;
+          }
+
+          .tab1 {
+            margin: 0px;
+            margin-bottom: -10px;
+            margin-left: 50px;
+          }
+
+          h1 {
+            text-align:center; 
+            background-color: rgb(163, 233, 165); 
+            padding:15px;
+          }
+
+          .flex-container {
+            display: flex;
+            flex-direction: row;
+            font-size: 20px;
+          }
+
+          .flex-item-left {
+            padding: 10px;
+            flex: 50%;
+          }
+
+          .flex-item-right {
+            padding: 10px;
+            flex: 50%;
+          }
+
+          /* Responsive layout - makes a one column-layout instead of two-column layout */
+          @media (max-width: 800px) {
+            .flex-container {
+              flex-direction: column;
+            }
+          }
+
+        </style>
+    </head>
+      
+<body>
+
+<!-- Navigation bar  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cooking Companion</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+<!-- NAV BAR ITEMS -->
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="recipes.html">Recipes <span class="sr-only">(current)</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="submit.html">Submit</a>
+    </li>
+</ul>
+
+
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+</nav>
+
+<div style="padding: 30px; line-height: 1.15;">
+
+    <!-- INCLUDE JAVASCRIPT -->
+    <script type=text/javascript src="voice2.js"></script>
+    <script type=text/javascript src="progress2.js"></script>
+
+<!-- PAGE CONTENT -->
+<button onclick="toggleSettings()" style="float:right; padding: 10px; margin:8px;">Voice settings</button>
+
+<h1>RECIPE 2 NAME</h1>
+<br>
+
+
+<div class="settings-div" id="changeSettings" style="display:none;">
+  <h3>Change Voice</h3>
+
+
+<!-- select gets populated from JavaScript -->
+<select class="select"></select>
+
+<br><br>
+
+<h3>Change Volume</h3>
+
+<button type="button" onclick="decreaseVolume()">-</button>
+<button type="button" onclick="increaseVolume()">+</button>
+
+
+<p id="currVol">current volume [between 0 (lowest) and 1 (highest)]: 1</p>
+
+<br>
+
+<h3>Change Rate</h3>
+
+<button type="button" onclick="decreaseRate()">-</button>
+<button type="button" onclick="increaseRate()">+</button>
+
+<p id="currRate">current rate [0.1 (lowest) and 10 (highest)]: 1</p>
+
+<br>
+
+<h3>Change Pitch</h3>
+
+<button type="button" onclick="decreasePitch()">-</button>
+<button type="button" onclick="increasePitch()">+</button>
+
+<p id="currPitch">current pitch [0 (lowest) and 2 (highest)]: 1</p>
+
+
+<br><br>
+
+
+<button type="button" onclick="playVoice()">Play voice example</button>
+
+<button type="button" onclick="stopVoice()">Stop voice example</button>
+
+<br><br>
+
+</div>
+
+
+<br><br>
+
+<div style="background-color:#f1f1f1; font-size:20; padding: 20px;">
+<h2>Speech to Text</h2>
+        <p>Click on the below button and speak something.</p>
+        <p> Things you can say: </p>
+        <ul>
+          <!-- <li>supply one, ..., supply four</li> -->
+          <!-- <li>pasta ingredient one</li>
+          <li>sauce ingredient one, ..., sauce ingredient three</li>
+          <li>garnishing ingredient one, ..., garnishing ingredient five</li> -->
+          <li>step one, step two, ..., step eleven</li> 
+          <li>previous supply, next supply</li>
+          <li>previous ingredient, next ingredient</li>
+          <li>previous step, next step</li>
+          <li>repeat</li>
+          <li>read supplies</li>
+          <li>read pasta ingredients</li>
+          <li>read sauce ingredients</li>
+          <li>read garnishing ingredients</li>
+        </ul>
+        <p><button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#bebebed2;">Speech to Text</button> &nbsp; <span id="action"></span></p>
+        <div id="output" class="hide"></div>
+</div>
+
+<div class="flex-container">
+  <div class="flex-item-left" style="font-style:italic;"><br><br><img src="images/pasta1.jpg" width="476" height="457" alt="The pasta after making the recipe"><br><br>Emmely's baked Tiktok pasta!
+  </div>
+  <div class="flex-item-right">
+
+<h2>Supply Checklist</h2>
+<input type="checkbox" onclick="crossOffSupplyNote()">
+<label class="strikethrough" id="supply1"> SUPPLY</label><br>
+<p class="tab1" id="supply1note">SUPPLY NOTE</p>
+<br>
+<input type="checkbox">
+<label class="strikethrough"> SUPPLY</label><br>
+<input type="checkbox">
+<label class="strikethrough"> SUPPLY</label><br>
+<input type="checkbox">
+<label class="strikethrough"> SUPPLY</label><br>
+
+
+
+<h2>Ingredient Checklist</h2>
+
+<h4>INGREDIENT CATEGORY:</h4>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT</label><br>
+
+<h4>INGREDIENT CATEGORY:</h4>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT</label><br>
+
+<input type="checkbox" onclick="crossOffSauceNote()">
+<label class="strikethrough" id="sauce2"> INGREDIENT
+</label><br>
+<p class="tab1" id="sauce2note">INGREDIENT NOTE </p> <br>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT </label><br>
+
+<h4>INGREDIENT CATEGORY:</h4>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT</label><br>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT </label><br>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT</label><br>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT</label><br>
+
+<input type="checkbox">
+<label class="strikethrough"> INGREDIENT</label><br>
+
+</div>
+</div>
+
+<!-- END OF FLEX CONTAINER -->
+
+
+<h2>Recipe Steps</h2>
+
+
+<ol class = "recipe-steps" style="line-height: 1.6; font-size:20px;">
+  <li onclick="crossoff(this, 'grey')"> FILL IN STEPS</li>
+  
+  
+</ol> 
+
+
+
+<a href="https://grilledcheesesocial.com/2019/06/27/baked-feta-pasta-with-tomatoes/">Recipe Source Link</a>
+
+
+</div>
+
+
+<div class="container" style="background-color:white;">
+  <h2>Progress Bar With Label</h2>
+  <div class="progress">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+      0%
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<!-- prevent "confirm form resubmission" on refresh of page
+https://stackoverflow.com/questions/6320113/how-to-prevent-form-resubmission-when-page-is-refreshed-f5-ctrlr
+-->
+<script>
+  if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+  }
+</script>
+
+
+</body>
+</html>
