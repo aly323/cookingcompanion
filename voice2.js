@@ -1,4 +1,4 @@
-// functions for all the voice functionality
+// functions for all the voice functionality for breakfast recipe
 
 
 // SOURCE:
@@ -251,58 +251,35 @@ function tts(str_request) {
     
 }
 
-// ---------- SPECIFICALLY FOR PASTA RECIPE -------------------------------
+// ---------- SPECIFICALLY FOR BREAKFAST RECIPE -------------------------------
 
 var recipe_steps = [
-    "Preheat oven to 400.", 
-    "Add 1/2 cup olive oil to a baking dish and toss with whole cherry tomatoes. Salt and pepper until everything is coated.", 
-    "Place the whole block of feta in the middle of the pan and top with a splash more of olive oil plus a few cranks of fresh pepper.", 
-    "Bake for 30 minutes.", 
-    "Meanwhile, prepare bowtie pasta according to directions then strain.", 
-    "After the 30 minutes has passed, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.", 
-    "Remove the baking dish from the oven and add garlic and red pepper flakes to taste.", 
-    "Stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.", 
-    "Toss in the pasta and stir one more time.", 
-    "Finish with fresh basil, another splash of olive oil and season with salt and pepper.", 
-    "If the dish is perfectly creamy, then it’s ready to serve! If it’s a little dry, add 1/4 cup pasta water and stir it up."
+    "Place the tortilla on a flat surface. Use a knife to make a cut from the bottom edge of the tortilla to the center along the radius.",
+    "Heat the butter in a pan and scramble the eggs the way you like them.",
+    "Imagine the tortilla made up of four quarters. We are going to fill each of these quarters with a different filling.",
+    "Place each of the four fillings, i.e., the scrambled eggs, the cheese, the salsa, and the mashed avocado, into their own quarter on the tortilla. Be careful not to overfill them!",
+    "Starting with the bottom right quarter, fold the tortilla over the top right quarter, then over the top left quarter and finally, over the bottom left quarter to form a triangle shape.",
+    "Transfer the tortilla to the same pan with a little extra butter for greasing.",
+    "Cook it until golden brown and crispy, about 2-3 minutes. Flip and cook until the cheese is melty.",
+    "Remove from heat and allow to rest for one minute and serve."
 ];
 
-var recipe_ingredients_pasta = [
-    "1 lb bowtie pasta"
-];
-
-var recipe_ingredients_sauce = [
-    "1/2 cup olive oil + more for finishing", 
-    "2 10oz boxes of cherry tomatoes (around 20-25 oz). TRICK: have tomatoes a little wilted and old", 
-    "1 (8 oz) block feta"
-];
-
-var recipe_ingredients_garnishing = [
-    "2 cloves of fresh garlic finely chopped",
-    "1 handful fresh basil leaves",
-    "A few pinches of red pepper flakes",
-    "Kosher salt",
-    "Fresh pepper"
-];
 
 var recipe_ingredients = [
-    "1 lb bowtie pasta",
-    "1/2 cup olive oil + more for finishing", 
-    "2 10oz boxes of cherry tomatoes (around 20-25 oz). TRICK: have tomatoes a little wilted and old", 
-    "1 (8 oz) block feta",
-    "2 cloves of fresh garlic finely chopped",
-    "1 handful fresh basil leaves",
-    "A few pinches of red pepper flakes",
-    "Kosher salt",
-    "Fresh pepper"
+    "1 large burrito-sized tortilla",
+    "1 tablespoon butter + more for greasing pan",
+    "2 eggs + scrambled egg ingredients",
+    "1/2 avocado mashed",
+    "2 tablespoons chunky salsa",
+    "3 tablespoons shredded mozzarella cheese"
 ];
 
 var recipe_supplies = [
-    "Baking dish, Small enough so that the tomatoes are crowded together and touching but deep enough to be able to hold the pasta at the end",
-    "Strainer", 
-    "Large pot", 
-    "Cutting board"
+    "Pan",
+    "Spatula",
+    "Knife"
 ];
+
 
 
 function getNextStep() {
@@ -398,33 +375,13 @@ function getSupplies() {
     return str;
 }
 
-function getPastaIngredients() {
+
+
+function getIngredients() {
     var str = "";
     var i;
-    for (var i=0; i < recipe_ingredients_pasta.length; i++) {
-        var supply = recipe_ingredients_pasta[i];
-        str += supply + ". ";
-    }
-
-    return str;
-}
-
-function getSauceIngredients() {
-    var str = "";
-    var i;
-    for (var i=0; i < recipe_ingredients_sauce.length; i++) {
-        var supply = recipe_ingredients_sauce[i];
-        str += supply + ". ";
-    }
-
-    return str;
-}
-
-function getGarnishingIngredients() {
-    var str = "";
-    var i;
-    for (var i=0; i < recipe_ingredients_garnishing.length; i++) {
-        var supply = recipe_ingredients_garnishing[i];
+    for (var i=0; i < recipe_ingredients.length; i++) {
+        var supply = recipe_ingredients[i];
         str += supply + ". ";
     }
 
@@ -438,11 +395,11 @@ function getMessage(str_request) {
     // individual steps
     if (str_request == "step one" || str_request == "step 1") {
         return recipe_steps[0];
-    } else if (str_request == "step two" || str_request == "step 2") {
+    } else if (str_request == "step two" || str_request == "step 2" || str_request == "step to" || str_request == "step too") {
         return recipe_steps[1];
     } else if (str_request == "step three" || str_request == "step 3") {
         return recipe_steps[2];
-    } else if (str_request == "step four" || str_request == "step 4") {
+    } else if (str_request == "step four" || str_request == "step 4" || str_request == "step for") {
         return recipe_steps[3];
     } else if (str_request == "step five" || str_request == "step 5") {
         return recipe_steps[4];
@@ -452,54 +409,8 @@ function getMessage(str_request) {
         return recipe_steps[6];
     } else if (str_request == "step eight" || str_request == "step 8") {
         return recipe_steps[7];
-    } else if (str_request == "step nine" || str_request == "step 9") {
-        return recipe_steps[8];
-    } else if (str_request == "step ten" || str_request == "step 10") {
-        return recipe_steps[9];
-    } else if (str_request == "step eleven" || str_request == "step 11") {
-        return recipe_steps[10];
     }
     
-    
-    // individual pasta ingredients
-    else if (str_request == "pasta ingredient one" || str_request == "pasta ingredient 1") {
-        return recipe_ingredients_pasta[0];
-    } 
-
-
-    // individual sauce ingredients
-    else if (str_request == "sauce ingredient one" || str_request == "sauce ingredient 1") {
-        return recipe_ingredients_sauce[0];
-    } else if (str_request == "sauce ingredient two" || str_request == "sauce ingredient 2" || str_request == "sauce ingredient to") {
-        return recipe_ingredients_sauce[1];
-    } else if (str_request == "sauce ingredient three" || str_request == "sauce ingredient 3") {
-        return recipe_ingredients_sauce[2];
-    } 
-
-    // individual garnishing ingredients
-    else if (str_request == "garnishing ingredient one" || str_request == "garnishing ingredient 1") {
-        return recipe_ingredients_garnishing[0];
-    } else if (str_request == "garnishing ingredient two" || str_request == "garnishing ingredient 2" || str_request == "garnishing ingredient to") {
-        return recipe_ingredients_garnishing[1];
-    } else if (str_request == "garnishing ingredient three" || str_request == "garnishing ingredient 3") {
-        return recipe_ingredients_garnishing[2];
-    } else if (str_request == "garnishing ingredient four" || str_request == "garnishing ingredient 4" || str_request == "garnishing ingredient for") {
-        return recipe_ingredients_garnishing[3];
-    } else if (str_request == "garnishing ingredient five" || str_request == "garnishing ingredient 5") {
-        return recipe_ingredients_garnishing[4];
-    }
-
-
-    // individual supply items
-    else if (str_request == "supply one" || str_request == "supply 1") {
-        return recipe_supplies[0];
-    } else if (str_request == "supply two" || str_request == "supply 2" || str_request == "supply to") {
-        return recipe_supplies[1];
-    } else if (str_request == "supply three" || str_request == "supply 3") {
-        return recipe_supplies[2];
-    } else if (str_request == "supply four" || str_request == "supply 4" || str_request == "supply for") {
-        return recipe_supplies[3];
-    }
 
     // previous/next step
     else if (str_request == "previous step") {
@@ -523,18 +434,30 @@ function getMessage(str_request) {
     } 
 
     // read all
-    else if (str_request == "read supplies") {
+    else if (str_request == "read supplies" || str_request == "reed supplies") {
         return getSupplies();
-    } else if (str_request == "read pasta ingredients") {
-        return getPastaIngredients();
-    } else if (str_request == "read sauce ingredients") {
-        return getSauceIngredients();
-    } else if (str_request == "read garnishing ingredients") {
-        return getGarnishingIngredients();
+    } else if (str_request == "read ingredients" || str_request == "reed ingredients") {
+        return getIngredients();
     }
     
     else if (str_request == "repeat") {
         return lastMsg;
+    }
+
+
+    // individual ingredients
+    else if (str_request == "read tortilla" || str_request == "reed tortilla") {
+        return "1 large burrito-sized tortilla";
+    } else if (str_request == "read butter" || str_request == "reed butter") {
+        return "1 tablespoon butter + more for greasing pan";
+    } else if (str_request == "read eggs" || str_request == "reed eggs") {
+        return "2 eggs + scrambled egg ingredients";
+    } else if (str_request == "read avocado" || str_request == "reed avocado") {
+        return "1/2 avocado mashed";
+    } else if (str_request == "read salsa" || str_request == "reed salsa") {
+        return "2 tablespoons chunky salsa";
+    } else if (str_request == "read cheese" || str_request == "reed cheese") {
+        return "3 tablespoons shredded mozzarella cheese";
     }
 
     

@@ -1,4 +1,4 @@
-// functions for all the voice functionality
+// functions for all the voice functionality for pasta recipe
 
 
 // SOURCE:
@@ -305,6 +305,7 @@ var recipe_supplies = [
 ];
 
 
+
 function getNextStep() {
     var nextStep = currStep + 1;
     var str = "";
@@ -432,17 +433,19 @@ function getGarnishingIngredients() {
 }
 
 
+
+
 // get the message needed based on what user requested
 function getMessage(str_request) {
 
     // individual steps
     if (str_request == "step one" || str_request == "step 1") {
         return recipe_steps[0];
-    } else if (str_request == "step two" || str_request == "step 2") {
+    } else if (str_request == "step two" || str_request == "step 2" || str_request == "step to" || str_request == "step too") {
         return recipe_steps[1];
     } else if (str_request == "step three" || str_request == "step 3") {
         return recipe_steps[2];
-    } else if (str_request == "step four" || str_request == "step 4") {
+    } else if (str_request == "step four" || str_request == "step 4" || str_request == "step for") {
         return recipe_steps[3];
     } else if (str_request == "step five" || str_request == "step 5") {
         return recipe_steps[4];
@@ -461,45 +464,6 @@ function getMessage(str_request) {
     }
     
     
-    // individual pasta ingredients
-    else if (str_request == "pasta ingredient one" || str_request == "pasta ingredient 1") {
-        return recipe_ingredients_pasta[0];
-    } 
-
-
-    // individual sauce ingredients
-    else if (str_request == "sauce ingredient one" || str_request == "sauce ingredient 1") {
-        return recipe_ingredients_sauce[0];
-    } else if (str_request == "sauce ingredient two" || str_request == "sauce ingredient 2" || str_request == "sauce ingredient to") {
-        return recipe_ingredients_sauce[1];
-    } else if (str_request == "sauce ingredient three" || str_request == "sauce ingredient 3") {
-        return recipe_ingredients_sauce[2];
-    } 
-
-    // individual garnishing ingredients
-    else if (str_request == "garnishing ingredient one" || str_request == "garnishing ingredient 1") {
-        return recipe_ingredients_garnishing[0];
-    } else if (str_request == "garnishing ingredient two" || str_request == "garnishing ingredient 2" || str_request == "garnishing ingredient to") {
-        return recipe_ingredients_garnishing[1];
-    } else if (str_request == "garnishing ingredient three" || str_request == "garnishing ingredient 3") {
-        return recipe_ingredients_garnishing[2];
-    } else if (str_request == "garnishing ingredient four" || str_request == "garnishing ingredient 4" || str_request == "garnishing ingredient for") {
-        return recipe_ingredients_garnishing[3];
-    } else if (str_request == "garnishing ingredient five" || str_request == "garnishing ingredient 5") {
-        return recipe_ingredients_garnishing[4];
-    }
-
-
-    // individual supply items
-    else if (str_request == "supply one" || str_request == "supply 1") {
-        return recipe_supplies[0];
-    } else if (str_request == "supply two" || str_request == "supply 2" || str_request == "supply to") {
-        return recipe_supplies[1];
-    } else if (str_request == "supply three" || str_request == "supply 3") {
-        return recipe_supplies[2];
-    } else if (str_request == "supply four" || str_request == "supply 4" || str_request == "supply for") {
-        return recipe_supplies[3];
-    }
 
     // previous/next step
     else if (str_request == "previous step") {
@@ -523,13 +487,13 @@ function getMessage(str_request) {
     } 
 
     // read all
-    else if (str_request == "read supplies") {
+    else if (str_request == "read supplies" || str_request == "reed supplies") {
         return getSupplies();
-    } else if (str_request == "read pasta ingredients") {
+    } else if (str_request == "read pasta ingredients" || str_request == "reed pasta ingredients") {
         return getPastaIngredients();
-    } else if (str_request == "read sauce ingredients") {
+    } else if (str_request == "read sauce ingredients" || str_request == "reed sauce ingredients") {
         return getSauceIngredients();
-    } else if (str_request == "read garnishing ingredients") {
+    } else if (str_request == "read garnishing ingredients" || str_request == "reed garnishing ingredients") {
         return getGarnishingIngredients();
     }
     
@@ -537,6 +501,27 @@ function getMessage(str_request) {
         return lastMsg;
     }
 
+    // individual ingredients
+    else if (str_request == "read pasta" || str_request == "reed pasta") {
+        return "1 lb bowtie pasta";
+    } else if (str_request == "read olive oil" || str_request == "reed olive oil") {
+        return "1/2 cup olive oil + more for finishing";
+    } else if (str_request == "read tomatoes" || str_request == "reed tomatoes") {
+        return "2 10oz boxes of cherry tomatoes (around 20-25 oz). TRICK: have tomatoes a little wilted and old";
+    } else if (str_request == "read feta" || str_request == "reed feta") {
+        return "1 (8 oz) block feta";
+    } else if (str_request == "read garlic" || str_request == "reed garlic") {
+        return "2 cloves of fresh garlic finely chopped";
+    } else if (str_request == "read basil" || str_request == "reed basil") {
+        return "1 handful fresh basil leaves";
+    } else if (str_request == "read red pepper" || str_request == "reed red pepper") {
+        return "A few pinches of red pepper flakes";
+    } else if (str_request == "read salt" || str_request == "reed salt") {
+        return "Kosher salt";
+    } else if (str_request == "read pepper" || str_request == "reed pepper") {
+        return "Fresh pepper";
+    }
+    
     
     else {
         return "Sorry, request not recognized."

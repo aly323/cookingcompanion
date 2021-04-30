@@ -6,7 +6,7 @@ var sauce2noteStrike = false;
 
 // update progress bar
 function updateProgress(stepNum, isCrossed) {
-    var instructionNum = 11;
+    var instructionNum = 8;
     var increment = 100 / instructionNum;
     
     var newprogress;
