@@ -5,9 +5,6 @@
         <title>Pasta Page</title>
 
         <style>
-          .settings-div {
-            background-color: #a4a5a4d2;
-          }
 
           input[type=checkbox]:checked + label.strikethrough{
               text-decoration: line-through;
@@ -61,6 +58,21 @@
               flex-direction: column;
             }
           }
+
+          .settings-div {
+            background-color: #a4a5a4b4;
+            font-size:16px; 
+            padding: 20px; 
+            line-height:1.6;
+          }
+
+          .speechtotext {
+            background-color:#f1f1f1; 
+            font-size:16px; 
+            padding: 20px; 
+            line-height:1.6;
+          }
+
 
         </style>
     </head>
@@ -121,31 +133,31 @@
 
 <br><br>
 
-<h3>Change Volume</h3>
+<h3 id="currVol">Current Volume: 1</h3>
 
 <button type="button" onclick="decreaseVolume()">-</button>
 <button type="button" onclick="increaseVolume()">+</button>
 
 
-<p id="currVol">current volume [between 0 (lowest) and 1 (highest)]: 1</p>
+<p> can be between 0 (lowest) and 1 (highest)</p>
 
 <br>
 
-<h3>Change Rate</h3>
+<h3 id="currRate">Current Rate: 1</h3>
 
 <button type="button" onclick="decreaseRate()">-</button>
 <button type="button" onclick="increaseRate()">+</button>
 
-<p id="currRate">current rate [0.1 (lowest) and 10 (highest)]: 1</p>
+<p>can be between 0.1 (lowest) and 10 (highest)</p>
 
 <br>
 
-<h3>Change Pitch</h3>
+<h3 id="currPitch">Current Pitch: 1</h3>
 
 <button type="button" onclick="decreasePitch()">-</button>
 <button type="button" onclick="increasePitch()">+</button>
 
-<p id="currPitch">current pitch [0 (lowest) and 2 (highest)]: 1</p>
+<p>can be between 0 (lowest) and 2 (highest)</p>
 
 
 <br><br>
@@ -162,13 +174,12 @@
 
 <br><br>
 
-<div style="background-color:#f1f1f1; font-size:20; padding: 20px;">
+<div class="speechtotext">
 <h2>Speech to Text</h2>
-        <p>Click on the below button and speak something.</p>
-        <p> Things you can say: </p>
+        <p>Things you can say: </p>
         <ul>
           <li>read [ingredient]: pasta, olive oil, tomatoes, feta, garlic, basil, red pepper, salt, pepper</li>
-          <li>step one, step two, ..., step eleven</li> 
+          <li>step [number]: step one, step two, ..., step eleven</li> 
           <li>previous supply, next supply</li>
           <li>previous ingredient, next ingredient</li>
           <li>previous step, next step</li>
@@ -178,7 +189,8 @@
           <li>read sauce ingredients</li>
           <li>read garnishing ingredients</li>
         </ul>
-        <p><button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#bebebed2;">Speech to Text</button> &nbsp; <span id="action"></span></p>
+        <p>Click on the button below and say something!</p>
+        <p><button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#bebebed2;">Ask for help!</button> &nbsp; <span id="action"></span></p>
         <div id="output" class="hide"></div>
 </div>
 
