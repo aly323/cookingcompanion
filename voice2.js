@@ -57,7 +57,7 @@ function decreaseVolume() {
         msg.volume = newVol;
     }
     var rounded = Math.round(msg.volume * 100) / 100;
-    document.getElementById("currVol").innerHTML = "current volume [between 0 (lowest) and 1 (highest)]: " + rounded;
+    document.getElementById("currVol").innerHTML = "Current Volume: " + rounded;
     
 }
 
@@ -74,7 +74,7 @@ function increaseVolume() {
         msg.volume = newVol;
     }
     var rounded = Math.round(msg.volume * 100) / 100;
-    document.getElementById("currVol").innerHTML = "current volume [between 0 (lowest) and 1 (highest)]: " + rounded;
+    document.getElementById("currVol").innerHTML = "Current Volume: " + rounded;
     
 }
 
@@ -94,7 +94,7 @@ function increaseRate() {
         msg.rate = newRate;
     }
     var rounded = Math.round(msg.rate * 100) / 100;
-    document.getElementById("currRate").innerHTML = "current rate [0.1 (lowest) and 10 (highest)]: " + rounded;
+    document.getElementById("currRate").innerHTML = "Current Rate: " + rounded;
 }
 
 
@@ -111,7 +111,7 @@ function decreaseRate() {
         msg.rate = newRate;
     }
     var rounded = Math.round(msg.rate * 100) / 100;
-    document.getElementById("currRate").innerHTML = "current rate [0.1 (lowest) and 10 (highest)]: " + rounded;
+    document.getElementById("currRate").innerHTML = "Current Rate: " + rounded;
 }
 
 
@@ -131,7 +131,7 @@ function decreasePitch() {
         msg.pitch = newPitch;
     }
     var rounded = Math.round(msg.pitch * 100) / 100;
-    document.getElementById("currPitch").innerHTML = "current pitch [0 (lowest) and 2 (highest)]: " + rounded;
+    document.getElementById("currPitch").innerHTML = "Current Pitch: " + rounded;
 }
 
 function increasePitch() {
@@ -147,7 +147,7 @@ function increasePitch() {
         msg.pitch = newPitch;
     }
     var rounded = Math.round(msg.pitch * 100) / 100;
-    document.getElementById("currPitch").innerHTML = "current pitch [0 (lowest) and 2 (highest)]: " + rounded;
+    document.getElementById("currPitch").innerHTML = "Current Pitch: " + rounded;
 }
 
 // test what the voice sounds like
