@@ -20,6 +20,12 @@
             float:center;
             bottom: 0;
           }
+
+          .stickycontainer {
+            position:fixed;
+            float:center;
+            top: 0;
+          }
           .recipe-steps {
             cursor: pointer;
           }
@@ -72,6 +78,11 @@
             padding: 20px; 
             line-height:1.6;
           }
+
+          .progress {
+            background: #a4a5a4b4;
+          }
+          
 
         </style>
     </head>
@@ -173,22 +184,27 @@
 
 <br><br>
 
-<div class="speechtotext">
-<h2>Speech to Text</h2>
+
+<div class="stickycontainer" style="background-color:#fa8f2b; padding: 10px;">
+  <button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#f5ab66">Ask for help!</button> &nbsp; <span id="action"></span></p>
+  <div id="output" class="hide"></div>
+
+</div>
+
+<button onclick="toggleCommands()" style="padding: 10px; margin:8px;">See Commands</button>
+
+<div class="speechtotext" id="voiceCommands" style="display:none;">
         <p> Things you can say: </p>
         <ul>
-          <li>read [ingredient]: tortilla, butter, eggs, avocado, salsa, cheese</li>
-          <li>step [number]: step one, step two, ..., step eight</li> 
-          <li>previous supply, next supply</li>
-          <li>previous ingredient, next ingredient</li>
-          <li>previous step, next step</li>
-          <li>repeat</li>
           <li>read supplies</li>
-          <li>read ingredients</li>
+          <li>previous supply, next supply</li><br>
+          <li>read [ingredient]: tortilla, butter, eggs, avocado, salsa, cheese</li>
+          <li>previous ingredient, next ingredient</li>
+          <li>read ingredients</li><br>
+          <li>step [number]: step one, step two, ..., step eight</li> 
+          <li>previous step, next step</li><br>
+          <li>repeat</li>
         </ul>
-        <p>Click on the button below and say something!</p>
-        <p><button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#bebebed2;">Ask for help!</button> &nbsp; <span id="action"></span></p>
-        <div id="output" class="hide"></div>
 </div>
 
 <div class="flex-container">
@@ -231,14 +247,14 @@
 <!-- END OF FLEX CONTAINER -->
 
 
-<h2>Recipe Steps</h2>
+<h2>Directions (Checklist)</h2>
 
 
 <ol class = "recipe-steps" style="line-height: 1.6; font-size:20px;">
   <li onclick="crossoff(this, 'grey')"> Place the tortilla on a flat surface. Use a knife to make a cut from the bottom edge of the tortilla to the center along the radius.</li>
-  <li onclick="crossoff(this, 'grey')"> Heat the butter in a pan and scramble the eggs the way you like them.</li>
+  <li onclick="crossoff(this, 'grey')"> Heat the butter in a pan and scramble two eggs the way you like them.</li>
   <li onclick="crossoff(this, 'grey')"> Imagine the tortilla made up of four quarters. We are going to fill each of these quarters with a different filling.</li>
-  <li onclick="crossoff(this, 'grey')"> Place each of the four fillings, i.e., the scrambled eggs, the cheese, the salsa, and the mashed avocado, into their own quarter on the tortilla. Be careful not to overfill them!</li>
+  <li onclick="crossoff(this, 'grey')"> Place each of the four fillings, i.e., the 2 scrambled eggs, 3 tablespoons of shredded cheese, 2 tablespoons of salsa, and 1/2 mashed avocado, into their own quarter on the tortilla. Be careful not to overfill them!</li>
   <li onclick="crossoff(this, 'grey')"> Starting with the bottom right quarter, fold the tortilla over the top right quarter, then over the top left quarter and finally, over the bottom left quarter to form a triangle shape.</li>
   <li onclick="crossoff(this, 'grey')"> Transfer the tortilla to the same pan with a little extra butter for greasing.</li>
   <li onclick="crossoff(this, 'grey')"> Cook it until golden brown and crispy, about 2-3 minutes. Flip and cook until the cheese is melty.</li>
@@ -256,7 +272,7 @@
 
 
 <div class="container" style="background-color:white;">
-  <h2>Progress Bar With Label</h2>
+  <h2>Progress Bar</h2>
   <div class="progress">
     <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
       0%

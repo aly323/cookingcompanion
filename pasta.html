@@ -20,6 +20,12 @@
             float:center;
             bottom: 0;
           }
+          .stickycontainer {
+            position:fixed;
+            float:center;
+            top: 0;
+          }
+
           .recipe-steps {
             cursor: pointer;
           }
@@ -71,6 +77,10 @@
             font-size:16px; 
             padding: 20px; 
             line-height:1.6;
+          }
+
+          .progress {
+            background: #a4a5a4b4;
           }
 
 
@@ -174,24 +184,28 @@
 
 <br><br>
 
-<div class="speechtotext">
-<h2>Speech to Text</h2>
+<div class="stickycontainer" style="background-color:#fa8f2b; padding: 10px;">
+  <button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#f5ab66">Ask for help!</button> &nbsp; <span id="action"></span></p>
+  <div id="output" class="hide"></div>
+
+</div>
+
+<button onclick="toggleCommands()" style="padding: 10px; margin:8px;">See Commands</button>
+
+<div class="speechtotext" id="voiceCommands" style="display:none;">
         <p>Things you can say: </p>
         <ul>
-          <li>read [ingredient]: pasta, olive oil, tomatoes, feta, garlic, basil, red pepper, salt, pepper</li>
-          <li>step [number]: step one, step two, ..., step eleven</li> 
-          <li>previous supply, next supply</li>
-          <li>previous ingredient, next ingredient</li>
-          <li>previous step, next step</li>
-          <li>repeat</li>
           <li>read supplies</li>
+          <li>previous supply, next supply </li><br>
+          <li>read [ingredient]: pasta, olive oil, tomatoes, feta, garlic, basil, red pepper, salt, pepper</li>
+          <li>previous ingredient, next ingredient</li>
           <li>read pasta ingredients</li>
           <li>read sauce ingredients</li>
-          <li>read garnishing ingredients</li>
+          <li>read garnishing ingredients</li> <br>
+          <li>step [number]: step one, step two, ..., step eleven</li> 
+          <li>previous step, next step</li><br>
+          <li>repeat</li>
         </ul>
-        <p>Click on the button below and say something!</p>
-        <p><button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#bebebed2;">Ask for help!</button> &nbsp; <span id="action"></span></p>
-        <div id="output" class="hide"></div>
 </div>
 
 <div class="flex-container">
@@ -256,7 +270,7 @@
 <!-- END OF FLEX CONTAINER -->
 
 
-<h2>Recipe Steps</h2>
+<h2>Directions (Checklist)</h2>
 
 
 <ol class = "recipe-steps" style="line-height: 1.6; font-size:20px;">

@@ -183,6 +183,16 @@ function toggleSettings() {
     }
 }
 
+// hide/show the voice commands
+function toggleCommands() {
+    var x = document.getElementById("voiceCommands");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 
 // Speech to text
 // https://www.studytonight.com/post/javascript-speech-recognition-example-speech-to-text
@@ -255,9 +265,9 @@ function tts(str_request) {
 
 var recipe_steps = [
     "Place the tortilla on a flat surface. Use a knife to make a cut from the bottom edge of the tortilla to the center along the radius.",
-    "Heat the butter in a pan and scramble the eggs the way you like them.",
+    "Heat the butter in a pan and scramble two eggs the way you like them.",
     "Imagine the tortilla made up of four quarters. We are going to fill each of these quarters with a different filling.",
-    "Place each of the four fillings, i.e., the scrambled eggs, the cheese, the salsa, and the mashed avocado, into their own quarter on the tortilla. Be careful not to overfill them!",
+    "Place each of the four fillings, i.e., the 2 scrambled eggs, 3 tablespoons of shredded cheese, 2 tablespoons of salsa, and 1/2 mashed avocado, into their own quarter on the tortilla. Be careful not to overfill them!",
     "Starting with the bottom right quarter, fold the tortilla over the top right quarter, then over the top left quarter and finally, over the bottom left quarter to form a triangle shape.",
     "Transfer the tortilla to the same pan with a little extra butter for greasing.",
     "Cook it until golden brown and crispy, about 2-3 minutes. Flip and cook until the cheese is melty.",

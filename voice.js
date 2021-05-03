@@ -183,6 +183,16 @@ function toggleSettings() {
     }
 }
 
+// hide/show the voice commands
+function toggleCommands() {
+    var x = document.getElementById("voiceCommands");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 
 // Speech to text
 // https://www.studytonight.com/post/javascript-speech-recognition-example-speech-to-text
