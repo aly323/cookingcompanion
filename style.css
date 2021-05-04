@@ -1,0 +1,108 @@
+input[type=checkbox]:checked + label.strikethrough{
+    text-decoration: line-through;
+}
+
+body {
+  line-height: 1.6;
+  padding-bottom: 30px;
+}
+
+/* progress bar container */
+.container {
+  position:fixed;
+  float:center;
+  bottom: 0;
+  background-color:white;
+}
+
+.stickycontainer {
+  position:fixed;
+  float:center;
+  top: 0;
+
+  /* may need color change */
+  background-color:#fa8f2b; 
+  padding: 10px;
+}
+
+.helpbutton {
+    padding: 10px; 
+    margin:8px; 
+    background-color:#f5ab66;
+}
+
+.recipe-steps {
+  cursor: pointer;
+  line-height: 1.6; 
+  font-size:20px;
+}
+
+.tab1 {
+  margin: 0px;
+  margin-bottom: -10px;
+  margin-left: 50px;
+}
+
+h1 {
+  text-align:center; 
+  background-color: rgb(163, 233, 165); 
+  padding:15px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+
+.flex-item-left {
+  padding: 10px;
+  flex: 50%;
+
+  font-style:italic;
+}
+
+.flex-item-right {
+  padding: 10px;
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+.settings-div {
+  background-color: #a4a5a4b4;
+  font-size:16px; 
+  padding: 20px; 
+  line-height:1.6;
+}
+
+.speechtotext {
+  background-color:#f1f1f1; 
+  font-size:16px; 
+  padding: 20px; 
+  line-height:1.6;
+}
+
+.progress {
+  background: #a4a5a4b4;
+}
+
+.progress-bar {
+    width:0%;
+}
+
+.toggleSettings {
+    float:right; 
+    padding: 10px; 
+    margin:8px;
+}
+
+.toggleCommands {
+    padding: 10px; 
+    margin:8px;
+}

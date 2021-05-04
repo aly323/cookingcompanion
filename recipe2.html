@@ -2,89 +2,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+
         <title>Breakfast Tortilla Page</title>
 
-        <style>
-
-          input[type=checkbox]:checked + label.strikethrough{
-              text-decoration: line-through;
-          }
-
-          body {
-            line-height: 1.6;
-            padding-bottom: 30px;
-          }
-
-          .container {
-            position:fixed;
-            float:center;
-            bottom: 0;
-          }
-
-          .stickycontainer {
-            position:fixed;
-            float:center;
-            top: 0;
-          }
-          .recipe-steps {
-            cursor: pointer;
-          }
-
-          .tab1 {
-            margin: 0px;
-            margin-bottom: -10px;
-            margin-left: 50px;
-          }
-
-          h1 {
-            text-align:center; 
-            background-color: rgb(163, 233, 165); 
-            padding:15px;
-          }
-
-          .flex-container {
-            display: flex;
-            flex-direction: row;
-            font-size: 20px;
-          }
-
-          .flex-item-left {
-            padding: 10px;
-            flex: 50%;
-          }
-
-          .flex-item-right {
-            padding: 10px;
-            flex: 50%;
-          }
-
-          /* Responsive layout - makes a one column-layout instead of two-column layout */
-          @media (max-width: 800px) {
-            .flex-container {
-              flex-direction: column;
-            }
-          }
-
-          .settings-div {
-            background-color: #a4a5a4b4;
-            font-size:16px; 
-            padding: 20px; 
-            line-height:1.6;
-          }
-
-          .speechtotext {
-            background-color:#f1f1f1; 
-            font-size:16px; 
-            padding: 20px; 
-            line-height:1.6;
-          }
-
-          .progress {
-            background: #a4a5a4b4;
-          }
-          
-
-        </style>
     </head>
       
 <body>
@@ -128,7 +49,7 @@
     <script type=text/javascript src="progress2.js"></script>
 
 <!-- PAGE CONTENT -->
-<button onclick="toggleSettings()" style="float:right; padding: 10px; margin:8px;">Voice settings</button>
+<button class="toggleSettings" onclick="toggleSettings()">Voice settings</button>
 
 <h1>Breakfast Tortilla Wrap</h1>
 <br>
@@ -185,13 +106,13 @@
 <br><br>
 
 
-<div class="stickycontainer" style="background-color:#fa8f2b; padding: 10px;">
-  <button type="button" onclick="runSpeechRecognition()" style="padding: 10px; margin:8px; background-color:#f5ab66">Ask for help!</button> &nbsp; <span id="action"></span></p>
+<div class="stickycontainer">
+  <button class="helpbutton" type="button" onclick="runSpeechRecognition()">Ask for help!</button> &nbsp; <span id="action"></span></p>
   <div id="output" class="hide"></div>
 
 </div>
 
-<button onclick="toggleCommands()" style="padding: 10px; margin:8px;">See Commands</button>
+<button class="toggleCommands" onclick="toggleCommands()">See Commands</button>
 
 <div class="speechtotext" id="voiceCommands" style="display:none;">
         <p> Things you can say: </p>
@@ -208,7 +129,7 @@
 </div>
 
 <div class="flex-container">
-  <div class="flex-item-left" style="font-style:italic;"><br><br><img src="images/wrap.jpg" width="476" height="457" alt="The wrap after making the recipe"><br><br>Emmely's cooked tortilla wrap!
+  <div class="flex-item-left"><br><br><img src="images/wrap.jpg" width="476" height="457" alt="The wrap after making the recipe"><br><br>Emmely's cooked tortilla wrap!
   </div>
   <div class="flex-item-right">
 
@@ -250,7 +171,7 @@
 <h2>Directions (Checklist)</h2>
 
 
-<ol class = "recipe-steps" style="line-height: 1.6; font-size:20px;">
+<ol class = "recipe-steps">
   <li onclick="crossoff(this, 'grey')"> Place the tortilla on a flat surface. Use a knife to make a cut from the bottom edge of the tortilla to the center along the radius.</li>
   <li onclick="crossoff(this, 'grey')"> Heat the butter in a pan and scramble two eggs the way you like them.</li>
   <li onclick="crossoff(this, 'grey')"> Imagine the tortilla made up of four quarters. We are going to fill each of these quarters with a different filling.</li>
@@ -268,19 +189,25 @@
 <a href="https://feelgoodfoodie.net/recipe/breakfast-tortilla-wrap/">Recipe Source Link</a>
 
 
+<footer>Note: Voice feature only works on Google Chrome Desktop and Google Chrome Android</footer>
+
+<br><br>
+
 </div>
 
 
-<div class="container" style="background-color:white;">
+<div class="container">
   <h2>Progress Bar</h2>
   <div class="progress">
-    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
       0%
     </div>
   </div>
 
 
 </div>
+
+
 
 
 
