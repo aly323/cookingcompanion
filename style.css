@@ -15,10 +15,13 @@ body {
   background-color:white;
 }
 
-.stickycontainer {
-  position:fixed;
+
+/* "ask for help" container */
+#stickycontainer {
   float:center;
   top: 0;
+  position: fixed;
+  cursor: move;
 
   /* may need color change */
   background-color:#fa8f2b; 

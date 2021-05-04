@@ -46,9 +46,11 @@
 
     <!-- INCLUDE JAVASCRIPT -->
     <script type=text/javascript src="recipe2.js"></script>
+    <script type=text/javascript src="style.js"></script>
 
 
 <!-- PAGE CONTENT -->
+
 <button class="toggleSettings" onclick="toggleSettings()">Voice settings</button>
 
 <h1>Breakfast Tortilla Wrap</h1>
@@ -106,7 +108,7 @@
 <br><br>
 
 
-<div class="stickycontainer">
+<div class="stickycontainer" id="stickycontainer">
   <button class="helpbutton" type="button" onclick="runSpeechRecognition()">Ask for help!</button> &nbsp; <span id="action"></span></p>
   <div id="output" class="hide"></div>
 
@@ -224,6 +226,11 @@ https://stackoverflow.com/questions/6320113/how-to-prevent-form-resubmission-whe
   if ( window.history.replaceState ) {
       window.history.replaceState( null, null, window.location.href );
   }
+</script>
+
+<!-- make draggable div -->
+<script>
+  dragElement(document.getElementById("stickycontainer"));
 </script>
 
 
