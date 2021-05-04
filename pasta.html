@@ -46,8 +46,7 @@
 <div style="padding: 30px; line-height: 1.15;">
 
     <!-- INCLUDE JAVASCRIPT -->
-    <script type=text/javascript src="voice.js"></script>
-    <script type=text/javascript src="progress.js"></script>
+    <script type=text/javascript src="recipe1.js"></script>
 
 <!-- PAGE CONTENT -->
 <button class="toggleSettings" onclick="toggleSettings()">Voice settings</button>
@@ -125,6 +124,7 @@
           <li>read sauce ingredients</li>
           <li>read garnishing ingredients</li> <br>
           <li>step [number]: step one, step two, ..., step eleven</li> 
+          <li>step [number] done: step one done, step two done, ..., step eleven done</li> 
           <li>previous step, next step</li><br>
           <li>repeat</li>
         </ul>
@@ -196,17 +196,17 @@
 
 
 <ol class = "recipe-steps">
-  <li onclick="crossoff(this, 'grey')"> Preheat oven to 400.</li>
-  <li onclick="crossoff(this, 'grey')"> Add 1/2 cup olive oil to a baking dish and toss with whole cherry tomatoes. Salt and pepper until everything is coated.</li>
-  <li onclick="crossoff(this, 'grey')"> Place the whole block of feta in the middle of the pan and top with a splash more of olive oil plus a few cranks of fresh pepper.</li>
-  <li onclick="crossoff(this, 'grey')"> Bake for 30 minutes.</li>
-  <li onclick="crossoff(this, 'grey')"> Meanwhile, prepare bowtie pasta according to directions then strain.</li>
-  <li onclick="crossoff(this, 'grey')"> After the 30 minutes has passed, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.</li>
-  <li onclick="crossoff(this, 'grey')"> Remove the baking dish from the oven and add garlic and red pepper flakes to taste.</li>
-  <li onclick="crossoff(this, 'grey')"> Stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.</li>
-  <li onclick="crossoff(this, 'grey')"> Toss in the pasta and stir one more time.</li>
-  <li onclick="crossoff(this, 'grey')"> Finish with fresh basil, another splash of olive oil and season with salt and pepper.</li>
-  <li onclick="crossoff(this, 'grey')"> If the dish is perfectly creamy, then it’s ready to serve! If it’s a little dry, add 1/4 cup pasta water and stir it up.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 1"> Preheat oven to 400.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 2"> Add 1/2 cup olive oil to a baking dish and toss with whole cherry tomatoes. Salt and pepper until everything is coated.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 3"> Place the whole block of feta in the middle of the pan and top with a splash more of olive oil plus a few cranks of fresh pepper.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 4"> Bake for 30 minutes.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 5"> Meanwhile, prepare bowtie pasta according to directions then strain.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 6"> After the 30 minutes has passed, crank the heat up to 450 and bake for another 5-10 minutes or until the feta and tomatoes have browned.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 7"> Remove the baking dish from the oven and add garlic and red pepper flakes to taste.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 8"> Stir so the residual heat cooks the garlic and releases the flavors from the red pepper flakes.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 9"> Toss in the pasta and stir one more time.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 10"> Finish with fresh basil, another splash of olive oil and season with salt and pepper.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 11"> If the dish is perfectly creamy, then it’s ready to serve! If it’s a little dry, add 1/4 cup pasta water and stir it up.</li>
   
 </ol> 
 

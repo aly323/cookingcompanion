@@ -45,8 +45,8 @@
 <div style="padding: 30px; line-height: 1.15;">
 
     <!-- INCLUDE JAVASCRIPT -->
-    <script type=text/javascript src="voice2.js"></script>
-    <script type=text/javascript src="progress2.js"></script>
+    <script type=text/javascript src="recipe2.js"></script>
+
 
 <!-- PAGE CONTENT -->
 <button class="toggleSettings" onclick="toggleSettings()">Voice settings</button>
@@ -123,6 +123,7 @@
           <li>previous ingredient, next ingredient</li>
           <li>read ingredients</li><br>
           <li>step [number]: step one, step two, ..., step eight</li> 
+          <li>step [number] done: step one done, step two done, ..., step eight done</li> 
           <li>previous step, next step</li><br>
           <li>repeat</li>
         </ul>
@@ -172,14 +173,14 @@
 
 
 <ol class = "recipe-steps">
-  <li onclick="crossoff(this, 'grey')"> Place the tortilla on a flat surface. Use a knife to make a cut from the bottom edge of the tortilla to the center along the radius.</li>
-  <li onclick="crossoff(this, 'grey')"> Heat the butter in a pan and scramble two eggs the way you like them.</li>
-  <li onclick="crossoff(this, 'grey')"> Imagine the tortilla made up of four quarters. We are going to fill each of these quarters with a different filling.</li>
-  <li onclick="crossoff(this, 'grey')"> Place each of the four fillings, i.e., the 2 scrambled eggs, 3 tablespoons of shredded cheese, 2 tablespoons of salsa, and 1/2 mashed avocado, into their own quarter on the tortilla. Be careful not to overfill them!</li>
-  <li onclick="crossoff(this, 'grey')"> Starting with the bottom right quarter, fold the tortilla over the top right quarter, then over the top left quarter and finally, over the bottom left quarter to form a triangle shape.</li>
-  <li onclick="crossoff(this, 'grey')"> Transfer the tortilla to the same pan with a little extra butter for greasing.</li>
-  <li onclick="crossoff(this, 'grey')"> Cook it until golden brown and crispy, about 2-3 minutes. Flip and cook until the cheese is melty.</li>
-  <li onclick="crossoff(this, 'grey')"> Remove from heat and allow to rest for one minute and serve.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 1"> Place the tortilla on a flat surface. Use a knife to make a cut from the bottom edge of the tortilla to the center along the radius.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 2"> Heat the butter in a pan and scramble two eggs the way you like them.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 3"> Imagine the tortilla made up of four quarters. We are going to fill each of these quarters with a different filling.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 4"> Place each of the four fillings, i.e., the 2 scrambled eggs, 3 tablespoons of shredded cheese, 2 tablespoons of salsa, and 1/2 mashed avocado, into their own quarter on the tortilla. Be careful not to overfill them!</li>
+  <li onclick="crossoff(this, 'grey')" id="step 5"> Starting with the bottom right quarter, fold the tortilla over the top right quarter, then over the top left quarter and finally, over the bottom left quarter to form a triangle shape.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 6"> Transfer the tortilla to the same pan with a little extra butter for greasing.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 7"> Cook it until golden brown and crispy, about 2-3 minutes. Flip and cook until the cheese is melty.</li>
+  <li onclick="crossoff(this, 'grey')" id="step 8"> Remove from heat and allow to rest for one minute and serve.</li>
   
   
 </ol> 
