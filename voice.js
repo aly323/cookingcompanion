@@ -450,26 +450,37 @@ function getMessage(str_request) {
 
     // individual steps
     if (str_request == "step one" || str_request == "step 1") {
+        currStep = 1;
         return recipe_steps[0];
     } else if (str_request == "step two" || str_request == "step 2" || str_request == "step to" || str_request == "step too") {
+        currStep = 2;
         return recipe_steps[1];
     } else if (str_request == "step three" || str_request == "step 3") {
+        currStep = 3;
         return recipe_steps[2];
     } else if (str_request == "step four" || str_request == "step 4" || str_request == "step for") {
+        currStep = 4;
         return recipe_steps[3];
     } else if (str_request == "step five" || str_request == "step 5") {
+        currStep = 5;
         return recipe_steps[4];
     } else if (str_request == "step six" || str_request == "step 6") {
+        currStep = 6;
         return recipe_steps[5];
     } else if (str_request == "step seven" || str_request == "step 7") {
+        currStep = 7;
         return recipe_steps[6];
     } else if (str_request == "step eight" || str_request == "step 8") {
+        currStep = 8;
         return recipe_steps[7];
     } else if (str_request == "step nine" || str_request == "step 9") {
+        currStep = 9;
         return recipe_steps[8];
     } else if (str_request == "step ten" || str_request == "step 10") {
+        currStep = 10;
         return recipe_steps[9];
     } else if (str_request == "step eleven" || str_request == "step 11") {
+        currStep = 11;
         return recipe_steps[10];
     }
     
