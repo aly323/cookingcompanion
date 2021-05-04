@@ -137,16 +137,27 @@
   <div class="flex-item-right">
 
 <h2>Supply Checklist</h2>
-<input type="checkbox" onclick="crossOffSupplyNote()">
-<label class="strikethrough" id="supply1"> Baking dish</label><br>
+<div class="checkbox">
+<input type="checkbox" onclick="crossOffSupplyNote()" id="supply-1">
+<label for="supply-1" class="strikethrough" id="supply1"> Baking dish</label><br>
 <p class="tab1" id="supply1note">Small enough so that the tomatoes are crowded together and touching but deep enough to be able to hold the pasta at the end</p>
 <br>
-<input type="checkbox">
-<label class="strikethrough"> Strainer</label><br>
-<input type="checkbox">
-<label class="strikethrough"> Large pot</label><br>
-<input type="checkbox">
-<label class="strikethrough"> Cutting board</label><br>
+</div>
+
+<div class="checkbox">
+<input type="checkbox" id="supply2">
+<label for="supply2" class="strikethrough"> Strainer</label><br>
+</div>
+
+<div class="checkbox">
+<input type="checkbox" id="supply3">
+<label for="supply3" class="strikethrough"> Large pot</label><br>
+</div>
+
+<div class="checkbox">
+<input type="checkbox" id="supply4">
+<label for="supply4" class="strikethrough"> Cutting board</label><br>
+</div>
 
 
 
@@ -154,38 +165,56 @@
 
 <h4>Pasta:</h4>
 
-<input type="checkbox">
-<label class="strikethrough"> 1 lb bowtie <u>pasta</u></label><br>
+<div class="checkbox">
+<input type="checkbox" id="pasta1">
+<label for="pasta1" class="strikethrough"> 1 lb bowtie <u>pasta</u></label><br>
+</div>
 
 <h4>Sauce:</h4>
 
-<input type="checkbox">
-<label class="strikethrough"> 1/2 cup <u>olive oil</u> + more for finishing</label><br>
+<div class="checkbox">
+<input type="checkbox" id="sauce1">
+<label for="sauce1" class="strikethrough"> 1/2 cup <u>olive oil</u> + more for finishing</label><br>
+</div>
 
-<input type="checkbox" onclick="crossOffSauceNote()">
-<label class="strikethrough" id="sauce2"> 2 10oz boxes of cherry <u>tomatoes</u> (around 20-25 oz)
+<div class="checkbox">
+<input type="checkbox" id="sauce-2" onclick="crossOffSauceNote()">
+<label for="sauce-2" class="strikethrough" id="sauce2"> 2 10oz boxes of cherry <u>tomatoes</u> (around 20-25 oz)
 </label><br>
 <p class="tab1" id="sauce2note">TRICK: have tomatoes a little wilted and old </p> <br>
+</div>
 
-<input type="checkbox">
-<label class="strikethrough"> 1 (8 oz) block <u>feta</u> </label><br>
+<div class="checkbox">
+<input type="checkbox" id="sauce3">
+<label for="sauce3" class="strikethrough"> 1 (8 oz) block <u>feta</u> </label><br>
+</div>
 
 <h4>Garnishing:</h4>
 
-<input type="checkbox">
-<label class="strikethrough"> 2 cloves of fresh <u>garlic</u> finely chopped</label><br>
+<div class="checkbox">
+<input type="checkbox" id="garnish1">
+<label for="garnish1" class="strikethrough"> 2 cloves of fresh <u>garlic</u> finely chopped</label><br>
+</div>
 
-<input type="checkbox">
-<label class="strikethrough"> 1 handful fresh <u>basil</u> leaves </label><br>
+<div class="checkbox">
+<input type="checkbox" id="garnish2">
+<label for="garnish2" class="strikethrough"> 1 handful fresh <u>basil</u> leaves </label><br>
+</div>
 
-<input type="checkbox">
-<label class="strikethrough"> A few pinches of <u>red pepper</u> flakes</label><br>
+<div class="checkbox">
+<input type="checkbox" id="garnish3">
+<label for="garnish3" class="strikethrough"> A few pinches of <u>red pepper</u> flakes</label><br>
+</div>
 
-<input type="checkbox">
-<label class="strikethrough"> Kosher <u>salt</u></label><br>
+<div class="checkbox">
+<input type="checkbox" id="garnish4">
+<label for="garnish4" class="strikethrough"> Kosher <u>salt</u></label><br>
+</div>
 
-<input type="checkbox">
-<label class="strikethrough"> Fresh <u>pepper</u></label><br>
+<div class="checkbox">
+<input type="checkbox" id="garnish5">
+<label for="garnish5" class="strikethrough"> Fresh <u>pepper</u></label><br>
+</div>
 
 </div>
 </div>
